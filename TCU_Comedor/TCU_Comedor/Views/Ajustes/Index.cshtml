@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ajustes - Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/Ajustes.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="@Url.Action("Index", "Home")">Inicio</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("About", "Home")">Sobre nosotros</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Services", "Home")">Servivios</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Contact", "Home")">Contacto</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Register", "Account")">Registro</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Login", "Account")">Inicio de sesión</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Settings Container -->
+    <div class="settings-container">
+        <div class="container">
+            <!-- Header -->
+            <div class="settings-header">
+                <h1><i class="fas fa-cog me-3"></i>Ajustes</h1>
+                <p>Personaliza tu experiencia en el comedor institucional</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+
+                    <!-- Apariencia -->
+                    <div class="settings-card">
+                        <div class="settings-section">
+                            <h3><i class="fas fa-palette"></i>Apariencia</h3>
+
+                            <div class="setting-item">
+                                <div class="setting-label">Tema de la aplicación</div>
+                                <div class="setting-description">Cambia entre modo claro y oscuro según tu preferencia</div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="themeToggle">
+                                    <label class="form-check-label" for="themeToggle" id="themeLabel">
+                                        <i class="fas fa-sun me-2"></i>Modo Claro
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="setting-item">
+                                <div class="setting-label">Tamaño de fuente</div>
+                                <div class="setting-description">Ajusta el tamaño del texto para mejor legibilidad</div>
+                                <input type="range" class="range-slider" id="fontSizeRange" min="12" max="20" value="16">
+                                <div class="d-flex justify-content-between mt-2">
+                                    <small>Pequeño</small>
+                                    <small id="fontSizeValue">16px</small>
+                                    <small>Grande</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notificaciones -->
+                    <div class="settings-card">
+                        <div class="settings-section">
+                            <h3><i class="fas fa-bell"></i>Notificaciones</h3>
+
+                            <div class="setting-item">
+                                <div class="setting-label">Notificaciones de menú</div>
+                                <div class="setting-description">Recibe avisos sobre el menú del día</div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="menuNotifications" checked>
+                                    <label class="form-check-label" for="menuNotifications">Activar</label>
+                                </div>
+                            </div>
+
+                            <div class="setting-item">
+                                <div class="setting-label">Recordatorios de comida</div>
+                                <div class="setting-description">Recibe recordatorios antes de las horas de comida</div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="mealReminders" checked>
+                                    <label class="form-check-label" for="mealReminders">Activar</label>
+                                </div>
+                            </div>
+
+                            <div class="setting-item">
+                                <div class="setting-label">Hora de recordatorio</div>
+                                <div class="setting-description">Cuántos minutos antes quieres recibir el recordatorio</div>
+                                <select class="form-select" id="reminderTime">
+                                    <option value="15">15 minutos antes</option>
+                                    <option value="30" selected>30 minutos antes</option>
+                                    <option value="60">1 hora antes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preferencias de Comida -->
+                    <div class="settings-card">
+                        <div class="settings-section">
+                            <h3><i class="fas fa-utensils"></i>Preferencias Alimentarias</h3>
+
+                            <div class="setting-item">
+                                <div class="setting-label">Restricciones dietéticas</div>
+                                <div class="setting-description">Selecciona tus restricciones alimentarias</div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="vegetarian">
+                                            <label class="form-check-label" for="vegetarian">Vegetariano</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="vegan">
+                                            <label class="form-check-label" for="vegan">Vegano</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="glutenFree">
+                                            <label class="form-check-label" for="glutenFree">Sin gluten</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="lactoseFree">
+                                            <label class="form-check-label" for="lactoseFree">Sin lactosa</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="nutFree">
+                                            <label class="form-check-label" for="nutFree">Sin frutos secos</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="diabetic">
+                                            <label class="form-check-label" for="diabetic">Diabético</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setting-item">
+                                <div class="setting-label">Tamaño de porción preferido</div>
+                                <div class="setting-description">Selecciona tu tamaño de porción habitual</div>
+                                <select class="form-select" id="portionSize">
+                                    <option value="small">Pequeña</option>
+                                    <option value="medium" selected>Mediana</option>
+                                    <option value="large">Grande</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botones de Acción -->
+                    <div class="d-flex gap-3 justify-content-center mb-4">
+                        <button type="button" class="btn btn-primary" id="saveSettings">
+                            <i class="fas fa-save me-2"></i>Guardar Cambios
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="resetSettings">
+                            <i class="fas fa-undo me-2"></i>Restaurar Predeterminados
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast para notificaciones -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="settingsToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+                <i class="fas fa-check-circle me-2"></i>
+                <span id="toastMessage">Configuración guardada exitosamente</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Variables globales
+        let currentSettings = {
+            theme: 'light',
+            fontSize: 16,
+            menuNotifications: true,
+            mealReminders: true,
+            reminderTime: 30,
+            dietaryRestrictions: [],
+            portionSize: 'medium',
+            shareData: true
+        };
+
+        // Cargar configuraciones guardadas
+        function loadSettings() {
+            const saved = localStorage.getItem('comedorSettings');
+            if (saved) {
+                currentSettings = { ...currentSettings, ...JSON.parse(saved) };
+            }
+            applySettings();
+        }
+
+        // Aplicar configuraciones
+        function applySettings() {
+            // Tema
+            document.documentElement.setAttribute('data-theme', currentSettings.theme);
+            document.getElementById('themeToggle').checked = currentSettings.theme === 'dark';
+            updateThemeLabel();
+
+            // Tamaño de fuente
+            document.getElementById('fontSizeRange').value = currentSettings.fontSize;
+            document.getElementById('fontSizeValue').textContent = currentSettings.fontSize + 'px';
+            document.body.style.fontSize = currentSettings.fontSize + 'px';
+
+            // Notificaciones
+            document.getElementById('menuNotifications').checked = currentSettings.menuNotifications;
+            document.getElementById('mealReminders').checked = currentSettings.mealReminders;
+            document.getElementById('reminderTime').value = currentSettings.reminderTime;
+
+            // Tamaño de porción
+            document.getElementById('portionSize').value = currentSettings.portionSize;
+
+            // Compartir datos
+            document.getElementById('shareData').checked = currentSettings.shareData;
+        }
+
+        // Cambio de tema
+        function updateThemeLabel() {
+            const themeLabel = document.getElementById('themeLabel');
+            const isDark = currentSettings.theme === 'dark';
+            themeLabel.innerHTML = isDark ?
+                '<i class="fas fa-moon me-2"></i>Modo Oscuro' :
+                '<i class="fas fa-sun me-2"></i>Modo Claro';
+        }
+
+        // Event listeners
+        document.getElementById('themeToggle').addEventListener('change', function (e) {
+            currentSettings.theme = e.target.checked ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', currentSettings.theme);
+            updateThemeLabel();
+        });
+
+        document.getElementById('fontSizeRange').addEventListener('input', function (e) {
+            currentSettings.fontSize = parseInt(e.target.value);
+            document.getElementById('fontSizeValue').textContent = currentSettings.fontSize + 'px';
+            document.body.style.fontSize = currentSettings.fontSize + 'px';
+        });
+
+        // Guardar configuraciones
+        document.getElementById('saveSettings').addEventListener('click', function () {
+            // Recopilar todas las configuraciones
+            currentSettings.menuNotifications = document.getElementById('menuNotifications').checked;
+            currentSettings.mealReminders = document.getElementById('mealReminders').checked;
+            currentSettings.reminderTime = document.getElementById('reminderTime').value;
+            currentSettings.portionSize = document.getElementById('portionSize').value;
+            currentSettings.shareData = document.getElementById('shareData').checked;
+
+            // Restricciones dietéticas
+            currentSettings.dietaryRestrictions = [];
+            const restrictions = ['vegetarian', 'vegan', 'glutenFree', 'lactoseFree', 'nutFree', 'diabetic'];
+            restrictions.forEach(restriction => {
+                if (document.getElementById(restriction).checked) {
+                    currentSettings.dietaryRestrictions.push(restriction);
+                }
+            });
+
+            // Guardar en localStorage
+            localStorage.setItem('comedorSettings', JSON.stringify(currentSettings));
+
+            // Mostrar toast
+            showToast('Configuración guardada exitosamente');
+        });
+
+        // Restaurar configuraciones predeterminadas
+        document.getElementById('resetSettings').addEventListener('click', function () {
+            if (confirm('¿Estás seguro de que quieres restaurar la configuración predeterminada?')) {
+                localStorage.removeItem('comedorSettings');
+                currentSettings = {
+                    theme: 'light',
+                    fontSize: 16,
+                    menuNotifications: true,
+                    mealReminders: true,
+                    reminderTime: 30,
+                    dietaryRestrictions: [],
+                    portionSize: 'medium',
+                    shareData: true
+                };
+                applySettings();
+                showToast('Configuración restaurada a valores predeterminados');
+            }
+        });
+
+        // Función para mostrar toast
+        function showToast(message) {
+            document.getElementById('toastMessage').textContent = message;
+            const toast = new bootstrap.Toast(document.getElementById('settingsToast'));
+            toast.show();
+        }
+
+        // Inicializar cuando la página carga
+        document.addEventListener('DOMContentLoaded', function () {
+            loadSettings();
+        });
+
+        // Aplicar tema guardado inmediatamente para evitar flash
+        (function () {
+            const saved = localStorage.getItem('comedorSettings');
+            if (saved) {
+                const settings = JSON.parse(saved);
+                if (settings.theme) {
+                    document.documentElement.setAttribute('data-theme', settings.theme);
+                }
+                if (settings.fontSize) {
+                    document.body.style.fontSize = settings.fontSize + 'px';
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>

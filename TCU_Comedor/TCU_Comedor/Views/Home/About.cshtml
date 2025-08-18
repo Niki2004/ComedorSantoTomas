@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sobre Nosotros - Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="@Url.Action("Index", "Home")">Inicio</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("About", "Home")">Sobre nosotros</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Services", "Home")">Servivios</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Contact", "Home")">Contacto</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Register", "Account")">Registro</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Login", "Account")">Inicio de sesión</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Principal Sobre Nosotros -->
+    <section id="about-main" style="padding: 80px 0; background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block text-center">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                            Sobre <span>Nosotros</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" style="font-size: 18px; color: #7f8c8d; margin-bottom: 50px;">
+                            Conoce más sobre nuestro comedor institucional y nuestro compromiso con la comunidad educativa
+                        </p>
+                        <hr style="border-color: #e67e22; width: 80px; border-width: 2px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia y Misión -->
+    <section id="our-story" style="padding: 80px 0; background-color: white;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <img class="img-fluid rounded" src="~/Imagen/escuela.jpeg" alt="Escuela Santo Tomás"
+                             style="box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 15px;">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="wow fadeInRight" data-wow-duration="500ms" data-wow-delay="400ms">
+                        <h2 style="color: #2c3e50; margin-bottom: 30px;">
+                            <span style="color: #e67e22;">Nuestra</span> Historia
+                        </h2>
+                        <p style="color: #7f8c8d; line-height: 1.8; margin-bottom: 20px;">
+                            Ubicados en el corazón de Santo Tomás, Costa Rica, nuestro comedor institucional ha sido
+                            parte integral de la comunidad educativa durante años. Nacimos con la misión de brindar
+                            alimentación nutritiva y de calidad a estudiantes, profesores y personal administrativo.
+                        </p>
+                        <p style="color: #7f8c8d; line-height: 1.8; margin-bottom: 20px;">
+                            Nos enorgullece ser más que un simple lugar de comida; somos un espacio de encuentro,
+                            donde se forjan amistades y se comparten momentos especiales durante la jornada académica.
+                        </p>
+                        <div style="background-color: #f8f9fa; padding: 20px; border-left: 4px solid #e67e22; border-radius: 5px;">
+                            <p style="margin: 0; color: #2c3e50; font-weight: 500;">
+                                <i class="fas fa-quote-left" style="color: #e67e22; margin-right: 10px;"></i>
+                                "Alimentando cuerpos y nutriendo el espíritu de nuestra comunidad educativa"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestro Equipo -->
+    <section id="our-team" style="padding: 80px 0; background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms" style="margin-bottom: 50px;">
+                        Nuestro <span>Equipo</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="400ms"
+                         style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; margin-bottom: 30px;">
+                        <div style="width: 120px; height: 120px; background-color: #e67e22; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-user-friends" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                        <h4 style="color: #2c3e50; margin-bottom: 15px;">Nuestras Cocineras</h4>
+                        <p style="color: #7f8c8d; line-height: 1.6;">
+                            Contamos con dos talentosas cocineras que dan vida a nuestro comedor. Con años de experiencia
+                            y un amor genuino por la cocina, preparan  diariamente decenas de comidas frescas y nutritivas para todos nuestros estudiantes.
+                        </p>
+                        <div style="display: flex; justify-content: center; margin-top: 15px;">
+                            <span style="background-color: #e67e22; color: white; padding: 5px 15px; border-radius: 15px; font-size: 14px; margin: 0 5px;">Experiencia</span>
+                            <span style="background-color: #e67e22; color: white; padding: 5px 15px; border-radius: 15px; font-size: 14px; margin: 0 5px;">Dedicación</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms"
+                         style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; margin-bottom: 30px;">
+                        <div style="width: 120px; height: 120px; background-color: #e67e22; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-heart" style="font-size: 3rem; color: white;"></i>
+                        </div>
+                        <h4 style="color: #2c3e50; margin-bottom: 15px;">Pasión por Servir</h4>
+                        <p style="color: #7f8c8d; line-height: 1.6;">
+                            Más que preparar alimentos, nuestro equipo se dedica a crear momentos especiales. Cada plato
+                            es preparado con cariño, pensando en brindar no solo nutrición, sino también el sabor de hogar
+                            que tanto necesita nuestra comunidad educativa.
+                        </p>
+                        <div style="display: flex; justify-content: center; margin-top: 15px;">
+                            <span style="background-color: #e67e22; color: white; padding: 5px 15px; border-radius: 15px; font-size: 14px; margin: 0 5px;">Amor</span>
+                            <span style="background-color: #e67e22; color: white; padding: 5px 15px; border-radius: 15px; font-size: 14px; margin: 0 5px;">Calidad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section id="stats" style="padding: 80px 0; background-color: #2c3e50; color: white;">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                        <i class="fas fa-utensils" style="font-size: 3rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h3 style="color: #e67e22; margin-bottom: 10px;">150+</h3>
+                        <p>Comidas diarias</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                        <i class="fas fa-users" style="font-size: 3rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h3 style="color: #e67e22; margin-bottom: 10px;">500+</h3>
+                        <p>Personas atendidas</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="500ms">
+                        <i class="fas fa-clock" style="font-size: 3rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h3 style="color: #e67e22; margin-bottom: 10px;">8</h3>
+                        <p>Horas de servicio</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                        <i class="fas fa-star" style="font-size: 3rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h3 style="color: #e67e22; margin-bottom: 10px;">15+</h3>
+                        <p>Años de experiencia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores y Misión -->
+    <section id="values" style="padding: 80px 0; background-color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-5">
+                    <h2 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                        Nuestros <span>Valores</span>
+                    </h2>
+                    <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" style="color: #7f8c8d; font-size: 18px;">
+                        Los principios que guían nuestro trabajo diario
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms"
+                         style="text-align: center; padding: 30px; border-radius: 15px; background-color: #f8f9fa; margin-bottom: 30px; height: 280px; display: flex; flex-direction: column; justify-content: center;">
+                        <i class="fas fa-leaf" style="font-size: 3rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h4 style="color: #2c3e50; margin-bottom: 15px;">Frescura</h4>
+                        <p style="color: #7f8c8d; line-height: 1.6;">
+                            Utilizamos ingredientes frescos y de temporada, apoyando a productores locales de Santo Tomás
+                            y garantizando la máxima calidad en cada platillo.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="400ms"
+                         style="text-align: center; padding: 30px; border-radius: 15px; background-color: #f8f9fa; margin-bottom: 30px; height: 280px; display: flex; flex-direction: column; justify-content: center;">
+                        <i class="fas fa-handshake" style="font-size: 3rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h4 style="color: #2c3e50; margin-bottom: 15px;">Servicio</h4>
+                        <p style="color: #7f8c8d; line-height: 1.6;">
+                            Brindamos un servicio cálido y personalizado, tratando a cada miembro de nuestra comunidad
+                            como familia y adaptándonos a sus necesidades especiales.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms"
+                         style="text-align: center; padding: 30px; border-radius: 15px; background-color: #f8f9fa; margin-bottom: 30px; height: 280px; display: flex; flex-direction: column; justify-content: center;">
+                        <i class="fas fa-balance-scale" style="font-size: 3rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h4 style="color: #2c3e50; margin-bottom: 15px;">Nutrición</h4>
+                        <p style="color: #7f8c8d; line-height: 1.6;">
+                            Cada menú está diseñado pensando en el bienestar nutricional, ofreciendo opciones balanceadas
+                            que apoyen el rendimiento académico y la salud integral.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section id="location" style="padding: 80px 0; background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h2 style="color: #2c3e50; margin-bottom: 30px;">
+                            <span style="color: #e67e22;">Nuestra</span> Ubicación
+                        </h2>
+                        <p style="color: #7f8c8d; line-height: 1.8; margin-bottom: 20px;">
+                            Nos encontramos en el campus de la institución educativa en Santo Tomás, Costa Rica.
+                            Un lugar privilegiado rodeado de la belleza natural costarricense, donde el ambiente
+                            tranquilo y familiar hace que cada comida sea una experiencia especial.
+                        </p>
+                        <div style="background-color: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <h5 style="color: #2c3e50; margin-bottom: 15px;">
+                                <i class="fas fa-map-marker-alt" style="color: #e67e22; margin-right: 10px;"></i>
+                                Santo Tomás, Costa Rica
+                            </h5>
+                            <p style="color: #7f8c8d; margin-bottom: 10px;">
+                                <i class="fas fa-clock" style="color: #e67e22; margin-right: 10px;"></i>
+                                Horario: Lunes a Viernes 7:00 AM - 2:00 PM
+                            </p>
+                            <p style="color: #7f8c8d; margin: 0;">
+                                <i class="fas fa-phone" style="color: #e67e22; margin-right: 10px;"></i>
+                                Teléfono: (506) 2244-8403
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="wow fadeInRight" data-wow-duration="500ms" data-wow-delay="400ms">
+                        <div style="background-color: #e67e22; height: 400px; border-radius: 15px; overflow: hidden;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.306260717083!2d-84.09164812501637!3d9.997188673740616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fb6d7dd7a48d%3A0x6f6243a9d89e0a97!2sSanto%20Tom%C3%A1s%2C%20Costa%20Rica!5e0!3m2!1ses-419!2scr!4v1724019570832!5m2!1ses-419!2scr"
+                                    width="100%"
+                                    height="400"
+                                    style="border:0; border-radius:15px;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>

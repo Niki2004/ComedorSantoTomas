@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Servicios - Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="@Url.Action("Index", "Home")">Inicio</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("About", "Home")">Sobre nosotros</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Services", "Home")">Servivios</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Contact", "Home")">Contacto</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Register", "Account")">Registro</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Login", "Account")">Inicio de sesión</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Principal de Servicios -->
+    <section id="services-main" style="padding: 80px 0; background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block text-center">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                            Nuestros <span>Servicios</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" style="font-size: 18px; color: #7f8c8d; margin-bottom: 50px;">
+                            Descubre todo lo que nuestro comedor institucional tiene para ofrecerte
+                        </p>
+                        <hr style="border-color: #e67e22; width: 80px; border-width: 2px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios de Comidas -->
+    <section id="meal-services" style="padding: 80px 0; background-color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-5">
+                    <h2 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                        Servicios de <span>Alimentación</span>
+                    </h2>
+                    <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" style="color: #7f8c8d; font-size: 16px;">
+                        Ofrecemos comidas nutritivas y deliciosas durante toda la jornada escolar
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Desayuno -->
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms"
+                         style="background: #f8f9fa; padding: 40px 30px; border-radius: 15px; margin-bottom: 30px; text-align: center; height: 420px; display: flex; flex-direction: column; justify-content: space-between; border-top: 5px solid #e67e22;">
+                        <div>
+                            <i class="fas fa-sun" style="font-size: 4rem; color: #e67e22; margin-bottom: 25px;"></i>
+                            <h3 style="color: #2c3e50; margin-bottom: 20px;">Desayuno</h3>
+                            <p style="color: #7f8c8d; line-height: 1.6; margin-bottom: 20px;">
+                                Comenzamos el día con desayunos nutritivos y energizantes. Opciones variadas que incluyen
+                                cereales, frutas frescas, lácteos y panecillos recién horneados.
+                            </p>
+                        </div>
+                        <div>
+                            <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #2c3e50;"><strong>Horario:</strong> 7:00 AM - 8:30 AM</p>
+                            </div>
+                            <span style="background-color: #e67e22; color: white; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: bold;">
+                                Disponible Diariamente
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Almuerzo -->
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="400ms"
+                         style="background: #f8f9fa; padding: 40px 30px; border-radius: 15px; margin-bottom: 30px; text-align: center; height: 420px; display: flex; flex-direction: column; justify-content: space-between; border-top: 5px solid #e67e22;">
+                        <div>
+                            <i class="fas fa-utensils" style="font-size: 4rem; color: #e67e22; margin-bottom: 25px;"></i>
+                            <h3 style="color: #2c3e50; margin-bottom: 20px;">Almuerzo</h3>
+                            <p style="color: #7f8c8d; line-height: 1.6; margin-bottom: 20px;">
+                                Menú completo con platos principales, acompañamientos y bebidas. Preparados diariamente
+                                con ingredientes frescos y siguiendo estándares nutricionales balanceados.
+                            </p>
+                        </div>
+                        <div>
+                            <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #2c3e50;"><strong>Horario:</strong> 11:30 AM - 1:30 PM</p>
+                            </div>
+                            <span style="background-color: #e67e22; color: white; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: bold;">
+                                Menú del Día
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Merienda -->
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms"
+                         style="background: #f8f9fa; padding: 40px 30px; border-radius: 15px; margin-bottom: 30px; text-align: center; height: 420px; display: flex; flex-direction: column; justify-content: space-between; border-top: 5px solid #e67e22;">
+                        <div>
+                            <i class="fas fa-cookie-bite" style="font-size: 4rem; color: #e67e22; margin-bottom: 25px;"></i>
+                            <h3 style="color: #2c3e50; margin-bottom: 20px;">Merienda</h3>
+                            <p style="color: #7f8c8d; line-height: 1.6; margin-bottom: 20px;">
+                                Snacks saludables y refrescantes para la tarde. Incluye opciones como frutas,
+                                galletas, jugos naturales y pequeños bocadillos nutritivos.
+                            </p>
+                        </div>
+                        <div>
+                            <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                                <p style="margin: 0; color: #2c3e50;"><strong>Horario:</strong> 2:00 PM - 3:00 PM</p>
+                               
+                            </div>
+                            <span style="background-color: #e67e22; color: white; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: bold;">
+                                Opciones Variadas
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instalaciones y Comodidades -->
+    <section id="facilities" style="padding: 80px 0; background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-5">
+                    <h2 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                        Instalaciones y <span>Comodidades</span>
+                    </h2>
+                    <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" style="color: #7f8c8d; font-size: 16px;">
+                        Contamos con todas las facilidades para hacer tu experiencia más cómoda
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Microondas -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms"
+                         style="background: white; padding: 30px 20px; border-radius: 15px; margin-bottom: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-fire" style="font-size: 3rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h4 style="color: #2c3e50; margin-bottom: 15px;">Microondas</h4>
+                        <p style="color: #7f8c8d; line-height: 1.6; font-size: 14px;">
+                            Microondas disponibles para calentar tu comida casera o alimentos que traigas de casa.
+                        </p>
+                        <span style="background-color: #e67e22; color: white; padding: 5px 15px; border-radius: 15px; font-size: 12px;">
+                            Uso Gratuito
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Lavamanos -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="400ms"
+                         style="background: white; padding: 30px 20px; border-radius: 15px; margin-bottom: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-hands-wash" style="font-size: 3rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h4 style="color: #2c3e50; margin-bottom: 15px;">Lavamanos</h4>
+                        <p style="color: #7f8c8d; line-height: 1.6; font-size: 14px;">
+                            Estaciones de lavado con agua corriente, jabón y toallas desechables para tu higiene.
+                        </p>
+                        <span style="background-color: #e67e22; color: white; padding: 5px 15px; border-radius: 15px; font-size: 12px;">
+                            Siempre Disponible
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Dispensadores de Agua -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms"
+                         style="background: white; padding: 30px 20px; border-radius: 15px; margin-bottom: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-tint" style="font-size: 3rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h4 style="color: #2c3e50; margin-bottom: 15px;">Agua Purificada</h4>
+                        <p style="color: #7f8c8d; line-height: 1.6; font-size: 14px;">
+                            Dispensadores de agua purificada fría y al tiempo para mantenerte hidratado.
+                        </p>
+                        <span style="background-color: #e67e22; color: white; padding: 5px 15px; border-radius: 15px; font-size: 12px;">
+                            Acceso Libre
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Televisión -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="600ms"
+                         style="background: white; padding: 30px 20px; border-radius: 15px; margin-bottom: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-tv" style="font-size: 3rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h4 style="color: #2c3e50; margin-bottom: 15px;">Entretenimiento</h4>
+                        <p style="color: #7f8c8d; line-height: 1.6; font-size: 14px;">
+                            Televisión con programación educativa y noticias para amenizar tu tiempo de comida.
+                        </p>
+                        <span style="background-color: #e67e22; color: white; padding: 5px 15px; border-radius: 15px; font-size: 12px;">
+                            Durante el Almuerzo
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Adicionales -->
+    <section id="additional-services" style="padding: 80px 0; background-color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-5">
+                    <h2 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                        Servicios <span>Adicionales</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Menús Especiales -->
+                <div class="col-md-6">
+                    <div class="wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms"
+                         style="background: #f8f9fa; padding: 40px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid #e67e22;">
+                        <i class="fas fa-star" style="font-size: 2.5rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h3 style="color: #2c3e50; margin-bottom: 20px;">Menús Especiales</h3>
+                        <p style="color: #7f8c8d; line-height: 1.8; margin-bottom: 20px;">
+                            Ofrecemos opciones especiales para estudiantes con necesidades dietéticas específicas,
+                            incluyendo menús sin gluten, vegetarianos y para diabéticos.
+                        </p>
+                        <ul style="color: #7f8c8d; padding-left: 20px;">
+                            <li>Opciones vegetarianas diarias</li>
+                            <li>Menús sin gluten bajo pedido</li>
+                            <li>Porciones especiales para diabéticos</li>
+                            <li>Comidas bajas en sodio</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Reservas y Pedidos -->
+                <div class="col-md-6">
+                    <div class="wow fadeInRight" data-wow-duration="500ms" data-wow-delay="400ms"
+                         style="background: #f8f9fa; padding: 40px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid #e67e22;">
+                        <i class="fas fa-calendar-check" style="font-size: 2.5rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h3 style="color: #2c3e50; margin-bottom: 20px;">Reservas de Comida</h3>
+                        <p style="color: #7f8c8d; line-height: 1.8; margin-bottom: 20px;">
+                            Sistema de reservas para garantizar tu comida, especialmente útil durante eventos especiales
+                            o días de alta demanda en el centro educativo.
+                        </p>
+                        <ul style="color: #7f8c8d; padding-left: 20px;">
+                            <li>Reservas con un día de anticipación</li>
+                            <li>Pedidos especiales para grupos</li>
+                            <li>Sistema de tickets prepagados</li>
+                            <li>Descuentos por pago mensual</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Eventos y Catering -->
+                <div class="col-md-6">
+                    <div class="wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="500ms"
+                         style="background: #f8f9fa; padding: 40px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid #e67e22;">
+                        <i class="fas fa-birthday-cake" style="font-size: 2.5rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h3 style="color: #2c3e50; margin-bottom: 20px;">Eventos Especiales</h3>
+                        <p style="color: #7f8c8d; line-height: 1.8; margin-bottom: 20px;">
+                            Servicios de catering para eventos escolares, reuniones de padres de familia,
+                            graduaciones y celebraciones especiales dentro de la institución.
+                        </p>
+                        <ul style="color: #7f8c8d; padding-left: 20px;">
+                            <li>Catering para eventos escolares</li>
+                            <li>Menús para reuniones</li>
+                            <li>Celebraciones de cumpleaños</li>
+                            <li>Banquetes de graduación</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Programa Nutricional -->
+                <div class="col-md-6">
+                    <div class="wow fadeInRight" data-wow-duration="500ms" data-wow-delay="600ms"
+                         style="background: #f8f9fa; padding: 40px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid #e67e22;">
+                        <i class="fas fa-apple-alt" style="font-size: 2.5rem; color: #e67e22; margin-bottom: 20px;"></i>
+                        <h3 style="color: #2c3e50; margin-bottom: 20px;">Educación Nutricional</h3>
+                        <p style="color: #7f8c8d; line-height: 1.8; margin-bottom: 20px;">
+                            Programas educativos sobre alimentación saludable, talleres de cocina básica y
+                            orientación nutricional para estudiantes y padres de familia.
+                        </p>
+                        <ul style="color: #7f8c8d; padding-left: 20px;">
+                            <li>Charlas sobre nutrición</li>
+                            <li>Talleres de cocina saludable</li>
+                            <li>Información sobre alergias alimentarias</li>
+                            <li>Guías nutricionales para padres</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horarios de Servicio -->
+    <section id="service-hours" style="padding: 60px 0; background-color: #2c3e50; color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-4">
+                    <h2 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                        Horarios de <span style="color: #e67e22;">Servicio</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                        <i class="fas fa-sun" style="font-size: 2rem; color: #e67e22; margin-bottom: 15px;"></i>
+                        <h4 style="color: #e67e22;">Desayuno</h4>
+                        <p>7:00 AM - 8:30 AM</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                        <i class="fas fa-utensils" style="font-size: 2rem; color: #e67e22; margin-bottom: 15px;"></i>
+                        <h4 style="color: #e67e22;">Almuerzo</h4>
+                        <p>11:30 AM - 1:30 PM</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="500ms">
+                        <i class="fas fa-cookie-bite" style="font-size: 2rem; color: #e67e22; margin-bottom: 15px;"></i>
+                        <h4 style="color: #e67e22;">Merienda</h4>
+                        <p>2:00 PM - 3:00 PM</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                        <i class="fas fa-calendar-alt" style="font-size: 2rem; color: #e67e22; margin-bottom: 15px;"></i>
+                        <h4 style="color: #e67e22;">Días</h4>
+                        <p>Lunes a Viernes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>
