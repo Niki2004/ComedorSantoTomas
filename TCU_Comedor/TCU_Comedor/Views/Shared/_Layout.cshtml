@@ -1,5 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
 <html>
+
+@{
+    var userId = User.Identity.GetUserId();
+    var settings = new TCU_Comedor.Models.ApplicationDbContext()
+        .UserSettings.FirstOrDefault(s => s.Id == userId);
+}
+
+@if (settings != null)
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.documentElement.setAttribute("data-theme", "@settings.Theme");
+            document.body.style.fontSize = "@settings.FontSize" + "px";
+        });
+    </script>
+}
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +27,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>  
+<body>
     <div class="container body-content">
         @RenderBody()
     </div>
@@ -16,5 +35,31 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+    (function () {
+        // Cargar ajustes desde la base de datos vía AJAX
+        fetch('@Url.Action("GetUserSettings", "Ajustes")')
+            .then(response => response.json())
+            .then(settings => {
+                if (!settings) return;
+
+                // Tema
+                if (settings.Theme) {
+                    document.documentElement.setAttribute('data-theme', settings.Theme);
+                }
+
+                // Tamaño de fuente
+                if (settings.FontSize) {
+                    document.body.style.fontSize = settings.FontSize + 'px';
+                }
+
+                // Aquí puedes aplicar otras configuraciones globales
+                // ejemplo: notificaciones, restricciones dietéticas, etc.
+            })
+            .catch(err => console.error("Error cargando ajustes:", err));
+    })();
+    </script>
+
 </body>
 </html>

@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html class="no-js">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,6 +54,10 @@
                                                             <i class="fas fa-right-from-bracket"></i> Cerrar sesión
                                                         </button>
                                                     }
+                                                </li>
+
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" href="@Url.Action("IndUsuario", "RolesPropuestos")">Inicio</a>
                                                 </li>
                                             }
                                             else
@@ -248,143 +251,92 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Variables globales
-        let currentSettings = {
-            theme: 'light',
-            fontSize: 16,
-            menuNotifications: true,
-            mealReminders: true,
-            reminderTime: 30,
-            dietaryRestrictions: [],
-            portionSize: 'medium',
-            shareData: true
-        };
+        const saveBtn = document.getElementById('saveSettings');
 
-        // Cargar configuraciones guardadas
-        function loadSettings() {
-            const saved = localStorage.getItem('comedorSettings');
-            if (saved) {
-                currentSettings = { ...currentSettings, ...JSON.parse(saved) };
-            }
-            applySettings();
-        }
-
-        // Aplicar configuraciones
-        function applySettings() {
-            // Tema
-            document.documentElement.setAttribute('data-theme', currentSettings.theme);
-            document.getElementById('themeToggle').checked = currentSettings.theme === 'dark';
-            updateThemeLabel();
-
-            // Tamaño de fuente
-            document.getElementById('fontSizeRange').value = currentSettings.fontSize;
-            document.getElementById('fontSizeValue').textContent = currentSettings.fontSize + 'px';
-            document.body.style.fontSize = currentSettings.fontSize + 'px';
-
-            // Notificaciones
-            document.getElementById('menuNotifications').checked = currentSettings.menuNotifications;
-            document.getElementById('mealReminders').checked = currentSettings.mealReminders;
-            document.getElementById('reminderTime').value = currentSettings.reminderTime;
-
-            // Tamaño de porción
-            document.getElementById('portionSize').value = currentSettings.portionSize;
-
-            // Compartir datos
-            document.getElementById('shareData').checked = currentSettings.shareData;
-        }
-
-        // Cambio de tema
-        function updateThemeLabel() {
-            const themeLabel = document.getElementById('themeLabel');
-            const isDark = currentSettings.theme === 'dark';
-            themeLabel.innerHTML = isDark ?
-                '<i class="fas fa-moon me-2"></i>Modo Oscuro' :
-                '<i class="fas fa-sun me-2"></i>Modo Claro';
-        }
-
-        // Event listeners
-        document.getElementById('themeToggle').addEventListener('change', function (e) {
-            currentSettings.theme = e.target.checked ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', currentSettings.theme);
-            updateThemeLabel();
-        });
-
-        document.getElementById('fontSizeRange').addEventListener('input', function (e) {
-            currentSettings.fontSize = parseInt(e.target.value);
-            document.getElementById('fontSizeValue').textContent = currentSettings.fontSize + 'px';
-            document.body.style.fontSize = currentSettings.fontSize + 'px';
-        });
-
-        // Guardar configuraciones
-        document.getElementById('saveSettings').addEventListener('click', function () {
-            // Recopilar todas las configuraciones
-            currentSettings.menuNotifications = document.getElementById('menuNotifications').checked;
-            currentSettings.mealReminders = document.getElementById('mealReminders').checked;
-            currentSettings.reminderTime = document.getElementById('reminderTime').value;
-            currentSettings.portionSize = document.getElementById('portionSize').value;
-            currentSettings.shareData = document.getElementById('shareData').checked;
-
-            // Restricciones dietéticas
-            currentSettings.dietaryRestrictions = [];
-            const restrictions = ['vegetarian', 'vegan', 'glutenFree', 'lactoseFree', 'nutFree', 'diabetic'];
-            restrictions.forEach(restriction => {
-                if (document.getElementById(restriction).checked) {
-                    currentSettings.dietaryRestrictions.push(restriction);
-                }
-            });
-
-            // Guardar en localStorage
-            localStorage.setItem('comedorSettings', JSON.stringify(currentSettings));
-
-            // Mostrar toast
-            showToast('Configuración guardada exitosamente');
-        });
-
-        // Restaurar configuraciones predeterminadas
-        document.getElementById('resetSettings').addEventListener('click', function () {
-            if (confirm('¿Estás seguro de que quieres restaurar la configuración predeterminada?')) {
-                localStorage.removeItem('comedorSettings');
-                currentSettings = {
-                    theme: 'light',
-                    fontSize: 16,
-                    menuNotifications: true,
-                    mealReminders: true,
-                    reminderTime: 30,
-                    dietaryRestrictions: [],
-                    portionSize: 'medium',
-                    shareData: true
+        if (saveBtn) {
+            saveBtn.addEventListener('click', function () {
+                // 1. Armar el objeto con los valores del formulario
+                const currentSettings = {
+                    Theme: document.getElementById('theme').value,
+                    FontSize: document.getElementById('fontSize').value,
+                    MenuNotifications: document.getElementById('menuNotifications').checked,
+                    MealReminders: document.getElementById('mealReminders').checked,
+                    ReminderTime: document.getElementById('reminderTime').value,
+                    PortionSize: document.getElementById('portionSize').value,
+                    ShareData: document.getElementById('shareData').checked,
+                    DietaryRestrictions: Array.from(
+                        document.querySelectorAll('input[name="dietaryRestrictions"]:checked')
+                    ).map(x => x.value)
                 };
-                applySettings();
-                showToast('Configuración restaurada a valores predeterminados');
-            }
-        });
 
-        // Función para mostrar toast
-        function showToast(message) {
-            document.getElementById('toastMessage').textContent = message;
-            const toast = new bootstrap.Toast(document.getElementById('settingsToast'));
-            toast.show();
+                // 2. Guardar en localStorage
+                localStorage.setItem('comedorSettings', JSON.stringify(currentSettings));
+
+                // 3. Enviar también al servidor vía AJAX (fetch)
+                fetch('/Ajustes/Guardar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                    },
+                    body: JSON.stringify(currentSettings)
+                })
+                    .then(resp => {
+                        if (resp.ok) {
+                            showToast('Configuración guardada exitosamente');
+                        } else {
+                            showToast('Error al guardar en la base de datos');
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Error en fetch:", err);
+                        showToast('Error de conexión con el servidor');
+                    });
+            });
         }
 
-        // Inicializar cuando la página carga
-        document.addEventListener('DOMContentLoaded', function () {
-            loadSettings();
-        });
+        // Función de helper para mostrar notificaciones rápidas
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.innerText = message;
+            toast.style.position = 'fixed';
+            toast.style.bottom = '20px';
+            toast.style.right = '20px';
+            toast.style.background = '#333';
+            toast.style.color = '#fff';
+            toast.style.padding = '10px 20px';
+            toast.style.borderRadius = '8px';
+            toast.style.zIndex = 10000;
+            toast.style.opacity = '0.9';
+            document.body.appendChild(toast);
 
-        // Aplicar tema guardado inmediatamente para evitar flash
-        (function () {
-            const saved = localStorage.getItem('comedorSettings');
-            if (saved) {
-                const settings = JSON.parse(saved);
-                if (settings.theme) {
-                    document.documentElement.setAttribute('data-theme', settings.theme);
-                }
-                if (settings.fontSize) {
-                    document.body.style.fontSize = settings.fontSize + 'px';
-                }
-            }
-        })();
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
     </script>
+    <script>let currentSettings = { theme: 'light', fontSize: 16, menuNotifications: true, mealReminders: true, reminderTime: 30, dietaryRestrictions: [], portionSize: 'medium', shareData: true };
+        // Cargar configuraciones guardadas 
+        function loadSettings() { const saved = localStorage.getItem('comedorSettings'); if (saved) { currentSettings = { ...currentSettings, ...JSON.parse(saved) }; } applySettings(); }
+        // Aplicar configuraciones al DOM 
+        function applySettings() {
+            // Tema 
+            document.documentElement.setAttribute('data-theme', currentSettings.theme); const themeToggle = document.getElementById('themeToggle'); const themeLabel = document.getElementById('themeLabel'); if (themeToggle) { themeToggle.checked = currentSettings.theme === 'dark'; } if (themeLabel) { updateThemeLabel(); }
+            // Tamaño de fuente 
+            const fontRange = document.getElementById('fontSizeRange'); const fontValue = document.getElementById('fontSizeValue'); if (fontRange && fontValue) { fontRange.value = currentSettings.fontSize; fontValue.textContent = currentSettings.fontSize + 'px'; } document.body.style.fontSize = currentSettings.fontSize + 'px';
+            // Notificaciones 
+            const menuNotif = document.getElementById('menuNotifications'); const mealRemind = document.getElementById('mealReminders'); const reminderTime = document.getElementById('reminderTime'); if (menuNotif) menuNotif.checked = currentSettings.menuNotifications; if (mealRemind) mealRemind.checked = currentSettings.mealReminders; if (reminderTime) reminderTime.value = currentSettings.reminderTime;
+            // Tamaño de porción 
+            const portionSize = document.getElementById('portionSize'); if (portionSize) portionSize.value = currentSettings.portionSize;
+            // Compartir datos 
+            const shareData = document.getElementById('shareData'); if (shareData) shareData.checked = currentSettings.shareData;
+        } // Cambio de tema 
+        function updateThemeLabel() { const themeLabel = document.getElementById('themeLabel'); const isDark = currentSettings.theme === 'dark'; themeLabel.innerHTML = isDark ? '<i class="fas fa-moon me-2"></i>Modo Oscuro' : '<i class="fas fa-sun me-2"></i>Modo Claro'; }
+        // Función para mostrar 
+        function showToast(message) { const toastMsg = document.getElementById('toastMessage'); const toastEl = document.getElementById('settingsToast'); if (toastMsg && toastEl) { toastMsg.textContent = message; const toast = new bootstrap.Toast(toastEl); toast.show(); } } 
+             document.addEventListener('DOMContentLoaded', function () {
+                 loadSettings();
+                 const themeToggle = document.getElementById('themeToggle'); if (themeToggle) { themeToggle.addEventListener('change', function (e) { currentSettings.theme = e.target.checked ? 'dark' : 'light'; document.documentElement.setAttribute('data-theme', currentSettings.theme); updateThemeLabel(); }); } const fontRange = document.getElementById('fontSizeRange'); const fontValue = document.getElementById('fontSizeValue'); if (fontRange && fontValue) { fontRange.addEventListener('input', function (e) { currentSettings.fontSize = parseInt(e.target.value); fontValue.textContent = currentSettings.fontSize + 'px'; document.body.style.fontSize = currentSettings.fontSize + 'px'; }); } const saveBtn = document.getElementById('saveSettings'); if (saveBtn) { saveBtn.addEventListener('click', function () { currentSettings.menuNotifications = document.getElementById('menuNotifications')?.checked || true; currentSettings.mealReminders = document.getElementById('mealReminders')?.checked || true; currentSettings.reminderTime = document.getElementById('reminderTime')?.value || 30; currentSettings.portionSize = document.getElementById('portionSize')?.value || 'medium'; currentSettings.shareData = document.getElementById('shareData')?.checked ?? true; currentSettings.dietaryRestrictions = []; const restrictions = ['vegetarian', 'vegan', 'glutenFree', 'lactoseFree', 'nutFree', 'diabetic']; restrictions.forEach(r => { if (document.getElementById(r)?.checked) { currentSettings.dietaryRestrictions.push(r); } }); localStorage.setItem('comedorSettings', JSON.stringify(currentSettings)); showToast('Configuración guardada exitosamente'); }); } const resetBtn = document.getElementById('resetSettings'); if (resetBtn) { resetBtn.addEventListener('click', function () { if (confirm('¿Estás seguro de que quieres restaurar la configuración predeterminada?')) { localStorage.removeItem('comedorSettings'); currentSettings = { theme: 'light', fontSize: 16, menuNotifications: true, mealReminders: true, reminderTime: 30, dietaryRestrictions: [], portionSize: 'medium', shareData: true }; applySettings(); showToast('Configuración restaurada a valores predeterminados'); } }); } });</script>
 </body>
 
 </html>

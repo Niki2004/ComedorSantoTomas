@@ -2,7 +2,21 @@
 
 <!DOCTYPE html>
 <html class="no-js">
+@{
+    var userId = User.Identity.GetUserId();
+    var settings = new TCU_Comedor.Models.ApplicationDbContext()
+        .UserSettings.FirstOrDefault(s => s.Id == userId);
+}
 
+@if (settings != null)
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.documentElement.setAttribute("data-theme", "@settings.Theme");
+            document.body.style.fontSize = "@settings.FontSize" + "px";
+        });
+    </script>
+}
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -297,5 +311,29 @@
         </div>
     </section>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function () {
+      // Cargar ajustes desde la base de datos vía AJAX
+      fetch('@Url.Action("GetUserSettings", "Ajustes")')
+          .then(response => response.json())
+          .then(settings => {
+              if (!settings) return;
 
+              // Tema
+              if (settings.Theme) {
+                  document.documentElement.setAttribute('data-theme', settings.Theme);
+              }
+
+              // Tamaño de fuente
+              if (settings.FontSize) {
+                  document.body.style.fontSize = settings.FontSize + 'px';
+              }
+
+              // Aquí puedes aplicar otras configuraciones globales
+              // ejemplo: notificaciones, restricciones dietéticas, etc.
+          })
+          .catch(err => console.error("Error cargando ajustes:", err));
+  })();
+</script>
 </html>

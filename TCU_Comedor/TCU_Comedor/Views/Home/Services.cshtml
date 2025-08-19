@@ -61,9 +61,14 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" href="@Url.Action("Login", "Account")">Inicio de sesión</a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
-                                            </li>
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href='@Url.Action("Index", "Ajustes")'>
+                                                        <i class="fas fa-cog"></i>
+                                                    </a>
+                                                </li>
+                                            }
                                         </ul>
                                     </div>
                                 </nav>

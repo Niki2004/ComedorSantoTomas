@@ -36,6 +36,7 @@ namespace TCU_Comedor.Models
         public DbSet<Nutricion> Nutricion { get; set; }
         public DbSet<PersonalizacionAlimentaria> PersonalizacionAlimentaria { get; set; }
         public DbSet<Proveedor> Proveedor { get; set; }
+        public DbSet<UserSettings> UserSettings { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -60,7 +61,7 @@ namespace TCU_Comedor.Models
             modelBuilder.Entity<Nutricion>().ToTable("Nutricion");
             modelBuilder.Entity<PersonalizacionAlimentaria>().ToTable("PersonalizacionAlimentaria");
             modelBuilder.Entity<Proveedor>().ToTable("Proveedor");
-
+            modelBuilder.Entity<UserSettings>().ToTable("UserSettings");
         }
 
         public System.Data.Entity.DbSet<TCU_Comedor.Models.ApplicationRol> IdentityRoles { get; set; }

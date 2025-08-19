@@ -181,6 +181,10 @@
     <Compile Include="Migrations\202508191832367_MigracionInicial.designer.cs">
       <DependentUpon>202508191832367_MigracionInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202508192104207_MigracionApariencia.cs" />
+    <Compile Include="Migrations\202508192104207_MigracionApariencia.designer.cs">
+      <DependentUpon>202508192104207_MigracionApariencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AgendaAlimenticia.cs" />
@@ -204,6 +208,7 @@
     <Compile Include="Models\PersonalizacionAlimentaria.cs" />
     <Compile Include="Models\Proveedor.cs" />
     <Compile Include="Models\RolInitialize.cs" />
+    <Compile Include="Models\UserSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -337,6 +342,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202508191832367_MigracionInicial.resx">
       <DependentUpon>202508191832367_MigracionInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202508192104207_MigracionApariencia.resx">
+      <DependentUpon>202508192104207_MigracionApariencia.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
