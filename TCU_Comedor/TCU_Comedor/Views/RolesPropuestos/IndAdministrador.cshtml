@@ -1,7 +1,436 @@
-﻿
-@{
-    ViewBag.Title = "IndAdministrador";
-}
+﻿@using Microsoft.AspNet.Identity
 
-<h2>IndAdministrador</h2>
+<!DOCTYPE html>
+<html class="no-js">
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Panel Administrador - Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+
+    <style>
+        .admin-dashboard {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .admin-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+            .admin-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .admin-card i {
+                font-size: 3rem;
+                color: #e74c3c;
+                margin-bottom: 20px;
+            }
+
+
+        .stats-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("GestionMenu", "Admin")">Gestión Menú</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("GestionUsuarios", "Admin")">Usuarios</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("GestionUsuarios", "Admin")">Usuarios</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Reportes", "Admin")">Reportes</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Inventario", "Admin")">Inventario</a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Admin")">Perfil</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <div class="title">
+                            <h3>Panel de <span>Administración</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="admin-dashboard">
+        <div class="container">
+            <!-- Estadísticas rápidas -->
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-number">152</div>
+                        <p>Usuarios Registrados</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-number">45</div>
+                        <p>Pedidos Hoy</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-number">12</div>
+                        <p>Menús Activos</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-number">₡850K</div>
+                        <p>Ingresos del Mes</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="admin-card">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Gestión de Menú</h3>
+                        <p>Administra los menús diarios, precios y disponibilidad de platillos.</p>
+                        <a href="@Url.Action("GestionMenu", "Admin")" class="btn btn-primary">Gestionar Menú</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="admin-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Gestión de Usuarios</h3>
+                        <p>Administra cuentas de usuarios, permisos y información personal.</p>
+                        <a href="@Url.Action("GestionUsuarios", "Admin")" class="btn btn-primary">Ver Usuarios</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="admin-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Pedidos Activos</h3>
+                        <p>Revisa y gestiona todos los pedidos pendientes y completados.</p>
+                        <a href="@Url.Action("Pedidos", "Admin")" class="btn btn-primary">Ver Pedidos</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="admin-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Reportes y Estadísticas</h3>
+                        <p>Genera reportes de ventas, usuarios más activos y análisis de datos.</p>
+                        <a href="@Url.Action("Reportes", "Admin")" class="btn btn-primary">Ver Reportes</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="admin-card">
+                        <i class="fas fa-boxes"></i>
+                        <h3>Control de Inventario</h3>
+                        <p>Gestiona el inventario de ingredientes y suministros del comedor.</p>
+                        <a href="@Url.Action("Inventario", "Admin")" class="btn btn-primary">Ver Inventario</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="admin-card">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Configuración del Sistema</h3>
+                        <p>Ajusta configuraciones generales, horarios y parámetros del sistema.</p>
+                        <a href="@Url.Action("Configuracion", "Admin")" class="btn btn-primary">Configurar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <img class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" src="~/Imagen/cooker-img.png"
+                             alt="cooker-img">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
+                            Administra
+                            <span>Nuestro Comedor</span> </br>con la mejor <span>Gestión</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                            Como administrador del Comedor Escolar de la Escuela Santo Tomás, tienes en tus manos la responsabilidad de brindar</br>
+                            la mejor experiencia alimentaria a nuestros estudiantes. Desde este panel puedes controlar todos los aspectos del</br>
+                            sistema: menús, usuarios, inventario y reportes. Tu gestión eficiente garantiza que cada niño reciba una alimentación</br>
+                            de calidad y que el comedor funcione de manera óptima día a día.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1 class="heading">Herramientas <span> De </span> Administración <span>Avanzada</span></h1>
+                        <ul>
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms">
+                                <div class="blog-img">
+                                    <img src="~/Imagen/blog/blog-img-1.jpg" alt="blog-img">
+                                </div>
+                                <div class="content-right">
+                                    <h3>Dashboard de Control</h3>
+                                    <p>
+                                        Panel completo con estadísticas en tiempo real, métricas de rendimiento y alertas del sistema...
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="400ms">
+                                <div class="blog-img">
+                                    <img src="~/Imagen/blog/blog-img-2.jpg" alt="blog-img">
+                                </div>
+                                <div class="content-right">
+                                    <h3>Gestión de Usuarios</h3>
+                                    <p>
+                                        Administra cuentas, permisos, roles y toda la información de los usuarios del sistema...
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="500ms">
+                                <div class="content-left">
+                                    <h3>Reportes Avanzados</h3>
+                                    <p>
+                                        Genera reportes detallados de ventas, consumo, inventario y análisis de tendencias...
+                                    </p>
+                                </div>
+                                <div class="blog-img-2">
+                                    <img src="~/Imagen/blog/blog-img-3.jpg" alt="blog-img">
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="600ms">
+                                <div class="content-left">
+                                    <h3>Control de Inventario</h3>
+                                    <p>
+                                        Monitorea stock, ingredientes, proveedores y optimiza los recursos del comedor...
+                                    </p>
+                                </div>
+                                <div class="blog-img-2">
+                                    <img src="~/Imagen/blog/blog-img-4.jpg" alt="blog-img">
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="700ms">
+                                <div class="blog-img">
+                                    <img src="~/Imagen/blog/blog-img-5.jpg" alt="blog-img">
+                                </div>
+                                <div class="content-right">
+                                    <h3>Configuración del Sistema</h3>
+                                    <p>
+                                        Personaliza horarios, precios, promociones y todos los parámetros del comedor...
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="800ms">
+                                <div class="blog-img">
+                                    <img src="~/Imagen/blog/blog-img-6.jpg" alt="blog-img">
+                                </div>
+                                <div class="content-right">
+                                    <h3>Notificaciones y Alertas</h3>
+                                    <p>
+                                        Sistema inteligente de notificaciones para stock bajo, pedidos urgentes y más...
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                            Funciones
+                            <span>ADMINISTRATIVAS</span> y <span>PRIVILEGIOS</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                            Como administrador tienes acceso completo a todas las funcionalidades del sistema.
+                            Gestiona eficientemente cada aspecto del comedor institucional desde este panel central.
+                        </p>
+                        <div class="pricing-list">
+                            <div class="title">
+                                <h3>Herramientas <span>Principales</span></h3>
+                            </div>
+                            <ul>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Gestión Completa de Menús</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-check text-success"></i></span>
+                                        </div>
+                                        <p>
+                                            Crear, editar y eliminar menús, establecer precios, horarios de disponibilidad
+                                            y gestionar ingredientes y porciones de cada platillo.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Administración de Usuarios</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-check text-success"></i></span>
+                                        </div>
+                                        <p>
+                                            Control total sobre cuentas de usuario, asignación de roles, permisos especiales
+                                            y gestión de información personal de estudiantes y staff.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="500ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Reportes y Analytics Avanzados</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-check text-success"></i></span>
+                                        </div>
+                                        <p>
+                                            Genera reportes detallados de ventas, consumo, inventario, análisis de tendencias
+                                            y métricas de rendimiento del comedor.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Control de Inventario Inteligente</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-check text-success"></i></span>
+                                        </div>
+                                        <p>
+                                            Monitoreo de stock en tiempo real, alertas de reposición automática,
+                                            gestión de proveedores y optimización de recursos.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="700ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Configuración del Sistema</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-check text-success"></i></span>
+                                        </div>
+                                        <p>
+                                            Personalización completa de horarios, precios, promociones, políticas de descuento
+                                            y todos los parámetros operativos del comedor.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="800ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Dashboard de Monitoreo 24/7</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-check text-success"></i></span>
+                                        </div>
+                                        <p>
+                                            Panel de control en tiempo real con métricas de rendimiento, notificaciones automáticas
+                                            y alertas del sistema para una gestión proactiva.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

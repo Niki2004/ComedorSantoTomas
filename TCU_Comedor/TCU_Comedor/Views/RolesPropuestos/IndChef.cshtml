@@ -1,7 +1,447 @@
-﻿
-@{
-    ViewBag.Title = "IndChef";
-}
+﻿@using Microsoft.AspNet.Identity
 
-<h2>IndChef</h2>
+<!DOCTYPE html>
+<html class="no-js">
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Panel Cocineras - Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+
+    <style>
+        .cocineras-dashboard {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .cocineras-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+            .cocineras-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .cocineras-card i {
+                font-size: 3rem;
+                color: #e74c3c;
+                margin-bottom: 20px;
+            }
+
+        .task-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .task-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .priority-high {
+            border-left: 5px solid #dc3545;
+        }
+
+        .priority-medium {
+            border-left: 5px solid #ffc107;
+        }
+
+        .priority-low {
+            border-left: 5px solid #28a745;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("PedidosHoy", "Cocineras")">Pedidos del Día</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("MenuPreparacion", "Cocineras")">Menú a Preparar</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Inventario", "Cocineras")">Ingredientes</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Recetas", "Cocineras")">Recetas</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Cocineras")">Perfil</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <div class="title">
+                            <h3>Panel de <span>Cocineras</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cocineras-dashboard">
+        <div class="container">
+            <!-- Tareas del día -->
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="task-card priority-high">
+                        <div class="task-number">45</div>
+                        <p>Pedidos por Preparar</p>
+                        <small>Prioridad Alta</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="task-card priority-medium">
+                        <div class="task-number">8</div>
+                        <p>Platillos en el Menú</p>
+                        <small>Para Hoy</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="task-card priority-low">
+                        <div class="task-number">12</div>
+                        <p>Ingredientes Disponibles</p>
+                        <small>En Stock</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="task-card">
+                        <div class="task-number">15</div>
+                        <p>Raciones Preparadas</p>
+                        <small>Listas para Servir</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="cocineras-card">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>Pedidos del Día</h3>
+                        <p>Revisa todos los pedidos pendientes que deben prepararse hoy.</p>
+                        <a href="@Url.Action("PedidosHoy", "Cocineras")" class="btn btn-primary">Ver Pedidos</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="cocineras-card">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Menú a Preparar</h3>
+                        <p>Consulta el menú programado y las cantidades a cocinar.</p>
+                        <a href="@Url.Action("MenuPreparacion", "Cocineras")" class="btn btn-primary">Ver Menú</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="cocineras-card">
+                        <i class="fas fa-carrot"></i>
+                        <h3>Ingredientes</h3>
+                        <p>Revisa la disponibilidad de ingredientes y solicita reposición.</p>
+                        <a href="@Url.Action("Inventario", "Cocineras")" class="btn btn-primary">Ver Ingredientes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="cocineras-card">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Recetas y Preparación</h3>
+                        <p>Accede a las recetas estándar y procedimientos de cocina.</p>
+                        <a href="@Url.Action("Recetas", "Cocineras")" class="btn btn-primary">Ver Recetas</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="cocineras-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Horarios de Servicio</h3>
+                        <p>Consulta los horarios de desayuno, almuerzo y merienda.</p>
+                        <a href="@Url.Action("Horarios", "Cocineras")" class="btn btn-primary">Ver Horarios</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="cocineras-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Alertas y Notificaciones</h3>
+                        <p>Revisa alertas de ingredientes faltantes o cambios urgentes.</p>
+                        <a href="@Url.Action("Alertas", "Cocineras")" class="btn btn-primary">Ver Alertas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <img class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" src="~/Imagen/cooker-img.png"
+                             alt="cooker-img">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
+                            Nuestras
+                            <span>Cocineras</span> </br>preparan con <span>Amor y Dedicación</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                            Queridas cocineras, ustedes son el corazón del Comedor Escolar de la Escuela Santo Tomás. Con sus manos expertas</br>
+                            y su dedicación diaria, transforman ingredientes simples en comidas nutritivas y deliciosas que alimentan no solo</br>
+                            el cuerpo, sino también el alma de nuestros niños. Su trabajo es fundamental para el crecimiento y bienestar</br>
+                            de cada estudiante que pasa por nuestro comedor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1 class="heading">Herramientas <span> Para </span> Cocina <span>Profesional</span></h1>
+                        <ul>
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms">
+                                <div class="blog-img">
+                                    <img src="~/Imagen/blog/blog-img-1.jpg" alt="blog-img">
+                                </div>
+                                <div class="content-right">
+                                    <h3>Gestión de Pedidos Diarios</h3>
+                                    <p>
+                                        Sistema organizado para revisar pedidos del día, cantidades requeridas y tiempos de preparación...
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="400ms">
+                                <div class="blog-img">
+                                    <img src="~/Imagen/blog/blog-img-2.jpg" alt="blog-img">
+                                </div>
+                                <div class="content-right">
+                                    <h3>Control de Ingredientes</h3>
+                                    <p>
+                                        Monitoreo en tiempo real del inventario de cocina, alertas de reposición y gestión de stock...
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="500ms">
+                                <div class="content-left">
+                                    <h3>Recetas Estandarizadas</h3>
+                                    <p>
+                                        Acceso a recetas oficiales con porciones exactas, tiempos de cocción y procedimientos paso a paso...
+                                    </p>
+                                </div>
+                                <div class="blog-img-2">
+                                    <img src="~/Imagen/blog/blog-img-3.jpg" alt="blog-img">
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="600ms">
+                                <div class="content-left">
+                                    <h3>Planificación de Menús</h3>
+                                    <p>
+                                        Calendario semanal con menús programados, ingredientes necesarios y preparación previa...
+                                    </p>
+                                </div>
+                                <div class="blog-img-2">
+                                    <img src="~/Imagen/blog/blog-img-4.jpg" alt="blog-img">
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="700ms">
+                                <div class="blog-img">
+                                    <img src="~/Imagen/blog/blog-img-5.jpg" alt="blog-img">
+                                </div>
+                                <div class="content-right">
+                                    <h3>Control de Calidad</h3>
+                                    <p>
+                                        Listas de verificación para asegurar la calidad e higiene en todas las preparaciones...
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="800ms">
+                                <div class="blog-img">
+                                    <img src="~/Imagen/blog/blog-img-6.jpg" alt="blog-img">
+                                </div>
+                                <div class="content-right">
+                                    <h3>Comunicación de Cocina</h3>
+                                    <p>
+                                        Sistema de comunicación directa con administración para reportes y solicitudes especiales...
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                            Tareas
+                            <span>DIARIAS</span> de <span>COCINA</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                            Organiza tu jornada de trabajo con estas herramientas diseñadas especialmente para
+                            optimizar la preparación de alimentos y el servicio del comedor escolar.
+                        </p>
+                        <div class="pricing-list">
+                            <div class="title">
+                                <h3>Actividades <span>Principales</span></h3>
+                            </div>
+                            <ul>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Preparación de Desayunos</h2>
+                                            <div class="border-bottom"></div>
+                                            <span>6:00 AM</span>
+                                        </div>
+                                        <p>
+                                            Preparación temprana de cereales, panecillos, frutas y bebidas calientes
+                                            para el servicio de desayuno de los estudiantes.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Cocción de Platos Principales</h2>
+                                            <div class="border-bottom"></div>
+                                            <span>9:00 AM</span>
+                                        </div>
+                                        <p>
+                                            Preparación de almuerzos: arroces, carnes, pollo, pescado, ensaladas
+                                            y acompañamientos según el menú programado del día.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="500ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Control de Porciones y Calidad</h2>
+                                            <div class="border-bottom"></div>
+                                            <span>11:00 AM</span>
+                                        </div>
+                                        <p>
+                                            Verificación de porciones adecuadas, temperatura de los alimentos,
+                                            presentación y cumplimiento de estándares nutricionales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Servicio y Distribución</h2>
+                                            <div class="border-bottom"></div>
+                                            <span>12:00 PM</span>
+                                        </div>
+                                        <p>
+                                            Servicio directo a los estudiantes, mantenimiento de la temperatura
+                                            de los alimentos y reposición continua según la demanda.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="700ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Preparación de Meriendas</h2>
+                                            <div class="border-bottom"></div>
+                                            <span>2:00 PM</span>
+                                        </div>
+                                        <p>
+                                            Elaboración de meriendas saludables, jugos naturales, frutas cortadas
+                                            y snacks nutritivos para la tarde.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="800ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Limpieza y Organización</h2>
+                                            <div class="border-bottom"></div>
+                                            <span>4:00 PM</span>
+                                        </div>
+                                        <p>
+                                            Limpieza profunda de cocina, sanitización de equipos, organización
+                                            del inventario y preparación para el día siguiente.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

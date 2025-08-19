@@ -45,27 +45,41 @@
                                 <nav class="navbar navbar-expand-lg">
                                     <div class="collapse navbar-collapse" id="navbarNav">
                                         <ul class="navbar-nav ms-auto">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="@Url.Action("Index", "Home")">Inicio</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("About", "Home")">Sobre nosotros</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Services", "Home")">Servivios</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Contact", "Home")">Contacto</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Register", "Account")">Registro</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Login", "Account")">Inicio de sesión</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
-                                            </li>
+                                            @if (Request.IsAuthenticated)
+                                            {
+                                                <li class="nav-item">
+                                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                                    {
+                                                        @Html.AntiForgeryToken()
+                                                        <button type="submit" class="nav-link btn btn-link text-dark" style="padding: 0; text-decoration: none;">
+                                                            <i class="fas fa-right-from-bracket"></i> Cerrar sesión
+                                                        </button>
+                                                    }
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" href="@Url.Action("Index", "Home")">Inicio</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("About", "Home")">Sobre nosotros</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("Services", "Home")">Servivios</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("Contact", "Home")">Contacto</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("Register", "Account")">Registro</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("Login", "Account")">Inicio de sesión</a>
+                                                </li>
+                                            }
+
+
                                         </ul>
                                     </div>
                                 </nav>
