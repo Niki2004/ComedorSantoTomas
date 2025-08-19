@@ -79,6 +79,10 @@ namespace TCU_Comedor.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Nombre Completo")]
+        public string NombreCompleto { get; set; }
     }
 
     public class ResetPasswordViewModel

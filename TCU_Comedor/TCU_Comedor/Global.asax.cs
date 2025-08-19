@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TCU_Comedor.Models;
 
 namespace TCU_Comedor
 {
@@ -16,6 +17,8 @@ namespace TCU_Comedor
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //Se agrega para poder inicializar los roles en la base de datos
+            RolInitialize.Inicializar();
         }
     }
 }

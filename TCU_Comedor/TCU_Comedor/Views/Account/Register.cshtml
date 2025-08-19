@@ -139,6 +139,19 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group row mb-4">
+                                    @Html.LabelFor(m => m.NombreCompleto, new { @class = "col-md-3 col-form-label font-weight-bold" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(m => m.NombreCompleto, new
+                                        {
+                                            @class = "form-control form-control-lg",
+                                            @placeholder = "Ingresa tu nombre completo",
+                                            @style = "border-radius: 25px; border: 2px solid #e67e22; padding: 15px 20px;"
+                                        })
+                                        @Html.ValidationMessageFor(m => m.NombreCompleto, "", new { @class = "text-danger small" })
+                                    </div>
+                                </div>
+
                                 <div class="form-group row">
                                     <div class="col-md-12 text-center">
                                         <input type="submit" value="Crear Cuenta" class="btn btn-lg"
