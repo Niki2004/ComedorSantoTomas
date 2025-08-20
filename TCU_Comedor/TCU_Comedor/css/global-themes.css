@@ -1,0 +1,213 @@
+/* global-themes.css - Estilos globales para temas */
+
+/* Variables CSS para temas */
+:root {
+    --base-font-size: 16px;
+    /* Tema Claro */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --text-muted: #adb5bd;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --accent-color: #007bff;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+/* Tema Oscuro */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #404040;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-muted: #999999;
+    --border-color: #555555;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --accent-color: #0d6efd;
+    --success-color: #198754;
+    --warning-color: #fd7e14;
+    --danger-color: #dc3545;
+}
+
+/* Aplicar variables globalmente */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: var(--base-font-size);
+    transition: background-color 0.3s ease, color 0.3s ease, font-size 0.2s ease;
+}
+
+/* Navegación */
+.navbar {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border-color);
+}
+
+    .navbar .nav-link {
+        color: var(--text-primary) !important;
+    }
+
+        .navbar .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+/* Tarjetas y contenedores */
+.card, .settings-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.card-header {
+    background-color: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+/* Formularios */
+.form-control, .form-select {
+    background-color: var(--bg-primary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+    .form-control:focus, .form-select:focus {
+        background-color: var(--bg-primary);
+        border-color: var(--accent-color);
+        color: var(--text-primary);
+        box-shadow: 0 0 0 0.2rem rgba(var(--accent-color), 0.25);
+    }
+
+/* Tablas */
+.table {
+    color: var(--text-primary);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > td {
+    background-color: var(--bg-tertiary);
+}
+
+.table-hover > tbody > tr:hover > td {
+    background-color: var(--bg-tertiary);
+}
+
+/* Modales */
+.modal-content {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border-color);
+}
+
+/* Alertas y toasts */
+.alert {
+    border: 1px solid var(--border-color);
+}
+
+.toast {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+/* Dropdowns */
+.dropdown-menu {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.dropdown-item {
+    color: var(--text-primary);
+}
+
+    .dropdown-item:hover {
+        background-color: var(--bg-tertiary);
+        color: var(--text-primary);
+    }
+
+/* Badges */
+.badge {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Texto con restricciones dietéticas */
+[data-dietary-restrictions*="vegetarian"] .vegetarian-highlight {
+    background-color: var(--success-color);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+[data-dietary-restrictions*="vegan"] .vegan-highlight {
+    background-color: #6f42c1;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+[data-dietary-restrictions*="glutenFree"] .gluten-free-highlight {
+    background-color: var(--warning-color);
+    color: #212529;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+/* Animaciones suaves */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+    :root {
+        --base-font-size: calc(var(--base-font-size) * 0.9);
+    }
+}
+
+/* Accesibilidad - High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --text-primary: #000000;
+    }
+
+    [data-theme="dark"] {
+        --border-color: #ffffff;
+        --text-primary: #ffffff;
+    }
+}

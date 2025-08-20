@@ -172,6 +172,7 @@
     <Compile Include="Controllers\AjustesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\RedirectController.cs" />
     <Compile Include="Controllers\RolesPropuestosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -213,6 +214,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BaseDatos\Agent_Job.sql" />
+    <Content Include="BaseDatos\Inserts.sql" />
     <Content Include="BaseDatos\Roles.sql" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -230,6 +233,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="css\Menu.css" />
+    <Content Include="css\global-themes.css" />
+    <Content Include="css\global-settings.js" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\Ajustes.css" />
@@ -308,6 +314,9 @@
     <Content Include="Views\RolesPropuestos\IndAdministrador.cshtml" />
     <Content Include="Views\RolesPropuestos\IndUsuario.cshtml" />
     <Content Include="Views\RolesPropuestos\IndChef.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Menu\IndexChef.cshtml" />
+    <Content Include="Views\Menu\Crear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
