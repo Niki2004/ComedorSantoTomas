@@ -12,6 +12,7 @@ namespace TCU_Comedor.Controllers
         private ApplicationDbContext BaseDatos = new ApplicationDbContext();
 
         // GET: Menu
+        [Authorize(Roles = "Usuario")]
         public ActionResult Index()
         {
             var menus = BaseDatos.Menu
@@ -21,6 +22,7 @@ namespace TCU_Comedor.Controllers
             return View(menus);
         }
 
+        [Authorize(Roles = "Chef")]
         public ActionResult IndexChef()
         {
             var menus = BaseDatos.Menu
@@ -30,6 +32,17 @@ namespace TCU_Comedor.Controllers
             return View(menus);
         }
 
+        [Authorize(Roles = "Administrador")]
+        public ActionResult IndexADM()
+        {
+            var menus = BaseDatos.Menu
+             .Include("CategoriaMenu")
+            .ToList();
+
+            return View(menus);
+        }
+
+        [Authorize(Roles = "Chef")]
         [HttpGet]
         public ActionResult Crear()
         {

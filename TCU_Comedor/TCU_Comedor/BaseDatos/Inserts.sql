@@ -34,3 +34,20 @@ INSERT INTO Menu (Id_CategoriaMenu, NombreComida, FechaMenu) VALUES
 (1, 'Cereal Integral con Leche y Frutas', '2025-08-22'),
 (2, 'Mini Empanadas de Queso', '2025-08-22'),
 (3, 'Arroz con Pollo y Ensalada', '2025-08-22');
+
+-- Insert de ConsultaNutricional
+INSERT INTO ConsultaNutricional (Id, Detalles, FechaConsultaNutricional)
+VALUES 
+('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Primera valoración nutricional, revisión de hábitos alimenticios', '2025-08-22'),
+('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Seguimiento de dieta, ajustes en plan alimenticio', '2025-08-23'),
+('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Consulta por control de peso y recomendaciones generales', '2025-08-24'),
+('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Revisión de progreso y nuevas sugerencias', '2025-08-25');
+
+-- Insert de ConsultaServicio
+INSERT INTO ConsultaServicio (Id, Detalle, FechaExperienciaNutricional)
+VALUES
+('1', 'Asesoría sobre alimentación saludable y balanceada', '2025-08-20'),
+('2', 'Sesión informativa sobre etiquetado nutricional', '2025-08-21'),
+('3', 'Consulta personalizada para control de peso', '2025-08-22'),
+('1', 'Charla sobre nutrición deportiva y suplementación', '2025-08-23'),
+('4', 'Taller de cocina saludable y práctica de recetas', '2025-08-24');

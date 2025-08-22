@@ -25,5 +25,27 @@ namespace TCU_Comedor.Controllers
         {
             return View();
         }
+
+        [Authorize]
+        public ActionResult Inicio()
+        {
+            if (User.IsInRole("Administrador"))
+            {
+                return RedirectToAction("IndAdministrador", "RolesPropuestos");
+            }
+            else if (User.IsInRole("Chef"))
+            {
+                return RedirectToAction("IndexChef", "RolesPropuestos");
+            }
+            else if (User.IsInRole("Usuario"))
+            {
+                return RedirectToAction("IndUsuario", "RolesPropuestos");
+            }
+
+            // En caso de no tener rol, lo mandas a login
+            return RedirectToAction("Login", "Account");
+        }
+
     }
+
 }

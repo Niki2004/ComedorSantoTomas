@@ -12,6 +12,7 @@ namespace TCU_Comedor.Models
     public class ApplicationUser : IdentityUser
     {
         public string NombreCompleto { get; set; }
+        public virtual ICollection<ConsultaServicio> ConsultasServicio { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

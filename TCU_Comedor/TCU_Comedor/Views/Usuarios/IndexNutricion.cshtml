@@ -1,0 +1,22 @@
+﻿@model IEnumerable<TCU_Comedor.Models.ConsultaNutricional>
+
+@{
+    ViewBag.Title = "Consultas Nutricionales";
+}
+
+<h2>Consultas Nutricionales</h2>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Detalles)</th>
+        <th>@Html.DisplayNameFor(model => model.FechaConsultaNutricional)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Detalles)</td>
+            <td>@Html.DisplayFor(modelItem => item.FechaConsultaNutricional)</td>
+        </tr>
+    }
+</table>

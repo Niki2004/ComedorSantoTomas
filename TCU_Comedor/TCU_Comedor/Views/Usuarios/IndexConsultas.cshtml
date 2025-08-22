@@ -1,0 +1,28 @@
+﻿@model IEnumerable<TCU_Comedor.Models.ConsultaServicio>
+
+@{
+    ViewBag.Title = "Consultas de Servicio";
+}
+
+<h2>Consultas de Servicio</h2>
+
+<p>
+    @Html.ActionLink("➕ Crear Nueva Consulta", "CrearConsultas", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.ApplicationUser.NombreCompleto)</th>
+        <th>@Html.DisplayNameFor(model => model.Detalle)</th>
+        <th>@Html.DisplayNameFor(model => model.FechaExperienciaNutricional)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ApplicationUser.NombreCompleto</td>
+            <td>@item.Detalle</td>
+            <td>@item.FechaExperienciaNutricional.ToShortDateString()</td>
+        </tr>
+    }
+</table>

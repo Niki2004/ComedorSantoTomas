@@ -175,6 +175,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\RedirectController.cs" />
     <Compile Include="Controllers\RolesPropuestosController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -321,6 +322,11 @@
     <Content Include="Views\Menu\Index.cshtml" />
     <Content Include="Views\Menu\IndexChef.cshtml" />
     <Content Include="Views\Menu\Crear.cshtml" />
+    <Content Include="Views\Menu\IndexADM.cshtml" />
+    <Content Include="Views\Usuarios\IndexUsuarios.cshtml" />
+    <Content Include="Views\Usuarios\IndexNutricion.cshtml" />
+    <Content Include="Views\Usuarios\IndexConsultas.cshtml" />
+    <Content Include="Views\Usuarios\CrearConsultas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

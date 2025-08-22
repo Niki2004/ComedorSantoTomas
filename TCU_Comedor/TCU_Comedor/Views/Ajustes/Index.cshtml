@@ -54,18 +54,20 @@
                                             @if (Request.IsAuthenticated)
                                             {
                                                 <li class="nav-item">
+                                                    <a class="nav-link active" href="@Url.Action("Inicio", "RolesPropuestos")">Inicio</a>
+                                                </li>
+
+                                                <li class="nav-item">
                                                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                                                     {
                                                         @Html.AntiForgeryToken()
                                                         <button type="submit" class="nav-link btn btn-link text-dark" style="padding: 0; text-decoration: none;">
-                                                            <i class="fas fa-right-from-bracket"></i> Cerrar sesión
+                                                            <i class="fas fa-right-from-bracket"></i>
                                                         </button>
                                                     }
                                                 </li>
 
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="@Url.Action("IndUsuario", "RolesPropuestos")">Inicio</a>
-                                                </li>
+
                                             }
                                             else
                                             {

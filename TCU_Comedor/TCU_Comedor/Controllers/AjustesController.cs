@@ -16,6 +16,7 @@ namespace TCU_Comedor.Controllers
     {
         private ApplicationDbContext BaseDatos = new ApplicationDbContext();
 
+        [Authorize(Roles = "Administrador, Chef, Usuario")]
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
@@ -42,6 +43,7 @@ namespace TCU_Comedor.Controllers
             return View(settings);
         }
 
+        [Authorize(Roles = "Administrador, Chef, Usuario")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Guardar()
@@ -106,6 +108,7 @@ namespace TCU_Comedor.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrador, Chef, Usuario")]
         [HttpGet]
         public JsonResult GetUserSettings()
         {
