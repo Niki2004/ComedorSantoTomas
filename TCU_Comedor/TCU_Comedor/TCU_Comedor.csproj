@@ -233,6 +233,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="css\IndexChef.css" />
+    <Content Include="css\IndexAdm.css" />
+    <Content Include="css\themes.css" />
+    <Content Include="css\comedorSettings.js" />
     <Content Include="css\Menu.css" />
     <Content Include="css\global-themes.css" />
     <Content Include="css\global-settings.js" />
