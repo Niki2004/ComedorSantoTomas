@@ -1,28 +1,406 @@
 ﻿@model IEnumerable<TCU_Comedor.Models.ConsultaServicio>
+@using Microsoft.AspNet.Identity
 
-@{
-    ViewBag.Title = "Consultas de Servicio";
-}
+<!DOCTYPE html>
+<html class="no-js">
 
-<h2>Consultas de Servicio</h2>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Consultas de Servicio - Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<p>
-    @Html.ActionLink("➕ Crear Nueva Consulta", "CrearConsultas", null, new { @class = "btn btn-primary" })
-</p>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.ApplicationUser.NombreCompleto)</th>
-        <th>@Html.DisplayNameFor(model => model.Detalle)</th>
-        <th>@Html.DisplayNameFor(model => model.FechaExperienciaNutricional)</th>
-    </tr>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/IndexAdm.css" rel="stylesheet" />
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.ApplicationUser.NombreCompleto</td>
-            <td>@item.Detalle</td>
-            <td>@item.FechaExperienciaNutricional.ToShortDateString()</td>
-        </tr>
+</head>
+
+<body>
+
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Inicio</a> 
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Gestión Menú</a> 
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexUsuarios", "Usuarios")">Usuarios</a> 
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexConsultas", "Usuarios")">Consultas</a> 
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index", "Reportes")">Reportes</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Inventario", "Admin")">Proveedor</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Admin")">Perfil</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a> 
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <div class="title">
+                            <h3>Consultas de <span>Servicio</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1 class="heading">Foro de <span>Consultas</span> y <span>Soporte</span></h1>
+                        @Html.ActionLink("Responder Consulta", "CrearConsultas", null, new { @class = "reply-btn" })
+
+                        <style>
+                            .forum-thread {
+                                background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+                                border: 1px solid #e9ecef;
+                                border-radius: 15px;
+                                box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+                                margin-bottom: 25px;
+                                overflow: hidden;
+                                transition: all 0.3s ease;
+                            }
+
+                                .forum-thread:hover {
+                                    transform: translateY(-2px);
+                                    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+                                }
+
+                            .thread-header {
+                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                color: white;
+                                padding: 20px 25px 15px;
+                                position: relative;
+                            }
+
+                                .thread-header::after {
+                                    content: '';
+                                    position: absolute;
+                                    bottom: -10px;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    width: 0;
+                                    height: 0;
+                                    border-left: 10px solid transparent;
+                                    border-right: 10px solid transparent;
+                                    border-top: 10px solid #764ba2;
+                                }
+
+                            .user-info {
+                                display: flex;
+                                align-items: center;
+                                gap: 15px;
+                                margin-bottom: 10px;
+                            }
+
+                            .user-avatar {
+                                width: 50px;
+                                height: 50px;
+                                background: rgba(255,255,255,0.2);
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                backdrop-filter: blur(10px);
+                            }
+
+                            .user-name {
+                                font-size: 18px;
+                                font-weight: 600;
+                                margin: 0;
+                            }
+
+                            .thread-date {
+                                font-size: 12px;
+                                opacity: 0.9;
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                            }
+
+                            .thread-content {
+                                padding: 25px;
+                                background: white;
+                            }
+
+                            .question-bubble {
+                                background: #f8f9fa;
+                                border-left: 4px solid #f39c12;
+                                padding: 20px;
+                                border-radius: 10px;
+                                font-size: 16px;
+                                line-height: 1.6;
+                                color: #2c3e50;
+                                position: relative;
+                                margin-bottom: 20px;
+                            }
+
+                                .question-bubble::before {
+                                    content: '"';
+                                    font-size: 48px;
+                                    color: #f39c12;
+                                    position: absolute;
+                                    top: -5px;
+                                    left: 15px;
+                                    font-family: serif;
+                                }
+
+                            .thread-actions {
+                                display: flex;
+                                gap: 10px;
+                                align-items: center;
+                                justify-content: space-between;
+                                padding-top: 15px;
+                                border-top: 1px solid #e9ecef;
+                            }
+
+                            .reply-btn {
+                                background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+                                color: white !important;
+                                padding: 5px 10px;
+                                border-radius: 25px;
+                                text-decoration: none !important;
+                                font-weight: 600;
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 8px;
+                                transition: all 0.3s ease;
+                                box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+                            }
+
+                                .reply-btn:hover {
+                                    transform: translateY(-2px);
+                                    box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4);
+                                }
+
+                            .thread-status {
+                                display: flex;
+                                gap: 15px;
+                                font-size: 14px;
+                                color: #6c757d;
+                            }
+
+                            .status-item {
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                            }
+
+                            .priority-badge {
+                                background: #dc3545;
+                                color: white;
+                                padding: 4px 12px;
+                                border-radius: 20px;
+                                font-size: 12px;
+                                font-weight: 600;
+                            }
+
+                            .reply-card {
+                                border: 1px solid #dee2e6;
+                                border-radius: 12px;
+                                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                                background: #ffffff;
+                            }
+
+                            .replies-list li {
+                                background: #f8f9fa;
+                                border-left: 4px solid #28a745;
+                                padding: 12px 15px;
+                                margin-bottom: 10px;
+                                border-radius: 8px;
+                                font-size: 15px;
+                                color: #2c3e50;
+                            }
+                        </style>
+
+                        <div class="forum-container">
+                            @foreach (var item in Model)
+                            {
+                                <div class="forum-thread wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms"data-threadid="@item.Id">
+                                    <div class="thread-content">
+                                        <div class="question-bubble">
+                                            <br /><h3 class="user-name">@item.ApplicationUser.NombreCompleto</h3>
+                                            <div class="thread-date">
+                                                <i class="fas fa-clock"></i>
+                                                @item.FechaExperienciaNutricional.ToShortDateString()
+                                            </div>
+                                            <br />@item.Detalle
+                                        </div>
+
+                                        <!-- Respuestas -->
+                                        <div class="thread-replies">
+                                            <ul class="replies-list"></ul>
+                                        </div>
+
+                                        <!-- Card de respuesta oculta -->
+                                        <div class="reply-card card mt-3" style="display:none;">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Tu respuesta</h6>
+                                                <textarea class="form-control reply-text" rows="3" placeholder="Escribe tu respuesta..."></textarea>
+                                                <button class="btn btn-success btn-sm mt-2 submit-reply">Enviar</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="thread-actions">
+                                            <div class="thread-status">
+                                                <div class="status-item">
+                                                    <i class="fas fa-comments"></i>
+                                                    <span class="reply-count">0 respuestas</span>
+                                                </div>
+                                            </div>
+                                            <button class="reply-btn" data-threadid="@item.Id">
+                                                <i class="fas fa-reply"></i> Responder
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="~/css/comedorSettings.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Función para renderizar respuestas guardadas
+    function renderRespuestas(threadId, replyList, replyCount) {
+        const stored = localStorage.getItem("respuestas_" + threadId);
+        if (!stored) return;
+
+        const data = JSON.parse(stored);
+        const now = new Date();
+
+        // Verificar si han pasado más de 5 días
+        const created = new Date(data.fecha);
+        const diffMs = now - created;
+        const diffDays = diffMs / (1000 * 60 * 60 * 24);
+
+        if (diffDays > 5) {
+            // Si pasaron más de 5 días, eliminar
+            localStorage.removeItem("respuestas_" + threadId);
+            return;
+        }
+
+        // Renderizar la respuesta guardada
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${data.usuario}</strong>: ${data.texto}<br>
+                        <small><i class="fas fa-clock"></i> ${new Date(data.fecha).toLocaleString()}</small>`;
+        replyList.appendChild(li);
+
+        replyCount.textContent = "1 respuesta";
     }
-</table>
+
+    document.querySelectorAll(".reply-btn").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const thread = this.closest(".forum-thread");
+            const replyCard = thread.querySelector(".reply-card");
+            const replyList = thread.querySelector(".replies-list");
+            const replyCount = thread.querySelector(".reply-count");
+
+            const threadId = thread.getAttribute("data-threadid"); // Necesita un ID único en cada thread
+
+            // Mostrar la card de respuesta
+            replyCard.style.display = "block";
+            this.style.display = "none";
+
+            // Ver si ya había una respuesta guardada
+            renderRespuestas(threadId, replyList, replyCount);
+
+            // Evento del botón Enviar dentro de la card
+            const submitBtn = replyCard.querySelector(".submit-reply");
+            submitBtn.addEventListener("click", function () {
+                const textarea = replyCard.querySelector(".reply-text");
+                const respuesta = textarea.value.trim();
+                if (!respuesta) return;
+
+                // Usuario autenticado
+                const usuario = "@User.Identity.GetUserName()";
+
+                // Fecha actual
+                const fecha = new Date();
+
+                // Guardar en localStorage con timestamp
+                const data = {
+                    usuario: usuario,
+                    texto: respuesta,
+                    fecha: fecha.toISOString()
+                };
+                localStorage.setItem("respuestas_" + threadId, JSON.stringify(data));
+
+                // Renderizar respuesta
+                renderRespuestas(threadId, replyList, replyCount);
+
+                // Desactivar textarea
+                textarea.disabled = true;
+                submitBtn.disabled = true;
+            }, { once: true });
+        });
+    });
+});
+    </script>
+
+
+
+</body>
+
+</html>

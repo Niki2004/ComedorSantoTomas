@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Panel Administrador - Comedor Institucional</title>
+    <title>Reportes - Comedor Institucional</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,7 +18,7 @@
     <link href="~/css/main.css" rel="stylesheet" />
     <link href="~/css/responsive.css" rel="stylesheet" />
     <link href="~/css/IndexAdm.css" rel="stylesheet" />
-  
+
 </head>
 
 <body>
@@ -88,7 +88,7 @@
                 <div class="col-md-12">
                     <div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
                         <div class="title">
-                            <h3>Panel de <span>Administración</span></h3>
+                            <h3>Centro de <span>Reportes</span></h3>
                         </div>
                     </div>
                 </div>
@@ -104,14 +104,13 @@
                         <img class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" src="~/Imagen/cooker-img.png"
                              alt="cooker-img">
                         <h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
-                            Administra
-                            <span>Nuestro Comedor</span> </br>con la mejor <span>Gestión</span>
+                            Genera
+                            <span>Reportes</span> </br>de manera <span>Profesional</span>
                         </h1>
                         <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
-                            Como administrador del Comedor Escolar de la Escuela Santo Tomás, tienes en tus manos la responsabilidad de brindar</br>
-                            la mejor experiencia alimentaria a nuestros estudiantes. Desde este panel puedes controlar todos los aspectos del</br>
-                            sistema: menús, usuarios, inventario y reportes. Tu gestión eficiente garantiza que cada niño reciba una alimentación</br>
-                            de calidad y que el comedor funcione de manera óptima día a día.
+                            Accede a reportes detallados de todos los aspectos del comedor institucional. Genera informes</br>
+                            en PDF de usuarios, menús, información nutricional y proveedores para análisis, auditorías</br>
+                            y toma de decisiones estratégicas. Toda la información organizada y lista para descargar.
                         </p>
                     </div>
                 </div>
@@ -124,72 +123,85 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="block">
-                        <h1 class="heading">Herramientas <span> De </span> Administración <span>Avanzada</span></h1>
+                        <h1 class="heading">Tipos de <span>Reportes</span> Disponibles</h1>
                         <ul>
                             <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms">
                                 <div class="blog-img">
-                                    <img src="~/Imagen/blog/blog-img-1.jpg" alt="blog-img">
+                                    <i class="fas fa-users fa-3x" style="color: #3498db;"></i>
                                 </div>
                                 <div class="content-right">
-                                    <h3>Dashboard de Control</h3>
+                                    <h3>Reporte de Usuarios</h3>
                                     <p>
-                                        Panel completo con estadísticas en tiempo real, métricas de rendimiento y alertas del sistema...
+                                        Listado completo de todos los usuarios registrados en el sistema del comedor,
+                                        incluyendo información personal, roles y fechas de registro.
                                     </p>
+                                    <div style="margin-top: 15px;">
+                                        @Html.ActionLink("Generar PDF", "ReporteUsuarios", new { formato = "pdf" }, new
+                                        {
+                                            @class = "nav-link",
+                                            @style = "background-color: #e74c3c; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold;"
+                                        })
+                                    </div>
                                 </div>
                             </li>
+
                             <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="400ms">
-                                <div class="blog-img">
-                                    <img src="~/Imagen/blog/blog-img-2.jpg" alt="blog-img">
-                                </div>
-                                <div class="content-right">
-                                    <h3>Gestión de Usuarios</h3>
-                                    <p>
-                                        Administra cuentas, permisos, roles y toda la información de los usuarios del sistema...
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="500ms">
                                 <div class="content-left">
-                                    <h3>Reportes Avanzados</h3>
+                                    <h3>Reporte de Menús</h3>
                                     <p>
-                                        Genera reportes detallados de ventas, consumo, inventario y análisis de tendencias...
+                                        Detalle de todos los menús registrados por categoría (desayuno, almuerzo, merienda),
+                                        incluyendo fechas y análisis de frecuencia de comidas.
                                     </p>
+                                    <div style="margin-top: 15px;">
+                                        @Html.ActionLink("Generar PDF", "ReporteMenus", new { formato = "pdf" }, new
+                                        {
+                                            @class = "nav-link",
+                                            @style = "background-color: #f39c12; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold;"
+                                        })
+                                    </div>
                                 </div>
                                 <div class="blog-img-2">
-                                    <img src="~/Imagen/blog/blog-img-3.jpg" alt="blog-img">
+                                    <i class="fas fa-utensils fa-3x" style="color: #f39c12;"></i>
                                 </div>
                             </li>
+
+                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="500ms">
+                                <div class="blog-img">
+                                    <i class="fas fa-heartbeat fa-3x" style="color: #27ae60;"></i>
+                                </div>
+                                <div class="content-right">
+                                    <h3>Reporte Nutricional</h3>
+                                    <p>
+                                        Información nutricional detallada de los usuarios, incluyendo observaciones,
+                                        restricciones alimentarias y seguimiento personalizado.
+                                    </p>
+                                    <div style="margin-top: 15px;">
+                                        @Html.ActionLink("Generar PDF", "ReporteNutricion", new { formato = "pdf" }, new
+                                        {
+                                            @class = "nav-link",
+                                            @style = "background-color: #27ae60; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold;"
+                                        })
+                                    </div>
+                                </div>
+                            </li>
+
                             <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="600ms">
                                 <div class="content-left">
-                                    <h3>Control de Inventario</h3>
+                                    <h3>Reporte de Proveedores</h3>
                                     <p>
-                                        Monitorea stock, ingredientes, proveedores y optimiza los recursos del comedor...
+                                        Directorio completo de proveedores por categoría, incluyendo información de contacto,
+                                        costos y análisis de relaciones comerciales.
                                     </p>
+                                    <div style="margin-top: 15px;">
+                                        @Html.ActionLink("Generar PDF", "ReporteProveedores", new { formato = "pdf" }, new
+                                        {
+                                            @class = "nav-link",
+                                            @style = "background-color: #9b59b6; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold;"
+                                        })
+                                    </div>
                                 </div>
                                 <div class="blog-img-2">
-                                    <img src="~/Imagen/blog/blog-img-4.jpg" alt="blog-img">
-                                </div>
-                            </li>
-                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="700ms">
-                                <div class="blog-img">
-                                    <img src="~/Imagen/blog/blog-img-5.jpg" alt="blog-img">
-                                </div>
-                                <div class="content-right">
-                                    <h3>Configuración del Sistema</h3>
-                                    <p>
-                                        Personaliza horarios, precios, promociones y todos los parámetros del comedor...
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="800ms">
-                                <div class="blog-img">
-                                    <img src="~/Imagen/blog/blog-img-6.jpg" alt="blog-img">
-                                </div>
-                                <div class="content-right">
-                                    <h3>Notificaciones y Alertas</h3>
-                                    <p>
-                                        Sistema inteligente de notificaciones para stock bajo, pedidos urgentes y más...
-                                    </p>
+                                    <i class="fas fa-truck fa-3x" style="color: #9b59b6;"></i>
                                 </div>
                             </li>
                         </ul>
@@ -205,94 +217,78 @@
                 <div class="col-md-12">
                     <div class="block">
                         <h1 class="heading wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
-                            Funciones
-                            <span>ADMINISTRATIVAS</span> y <span>PRIVILEGIOS</span>
+                            Reportes
+                            <span>CONSOLIDADOS</span> y <span>ESPECIALES</span>
                         </h1>
                         <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
-                            Como administrador tienes acceso completo a todas las funcionalidades del sistema.
-                            Gestiona eficientemente cada aspecto del comedor institucional desde este panel central.
+                            Genera reportes combinados y análisis especializados para una visión integral del comedor.
+                            Perfectos para presentaciones ejecutivas y análisis de tendencias.
                         </p>
                         <div class="pricing-list">
                             <div class="title">
-                                <h3>Herramientas <span>Principales</span></h3>
+                                <h3>Reportes <span>Avanzados</span></h3>
                             </div>
                             <ul>
                                 <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
                                     <div class="item">
                                         <div class="item-title">
-                                            <h2>Gestión Completa de Menús</h2>
+                                            <h2>Reporte General del Sistema</h2>
                                             <div class="border-bottom"></div>
-                                            <span><i class="fas fa-check text-success"></i></span>
+                                            <span><i class="fas fa-chart-bar text-primary"></i></span>
                                         </div>
                                         <p>
-                                            Crear, editar y eliminar menús, establecer precios, horarios de disponibilidad
-                                            y gestionar ingredientes y porciones de cada platillo.
+                                            Reporte consolidado que incluye estadísticas generales de usuarios, menús más populares,
+                                            resumen nutricional y análisis de proveedores en un solo documento.
                                         </p>
+                                        <div style="margin-top: 15px; text-align: center;">
+                                            @Html.ActionLink("Descargar Reporte General", "ReporteGeneral", new { formato = "pdf" }, new
+                                            {
+                                                @class = "nav-link",
+                                                @style = "background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);"
+                                            })
+                                        </div>
                                     </div>
                                 </li>
+
                                 <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
                                     <div class="item">
                                         <div class="item-title">
-                                            <h2>Administración de Usuarios</h2>
+                                            <h2>Análisis de Tendencias Mensuales</h2>
                                             <div class="border-bottom"></div>
-                                            <span><i class="fas fa-check text-success"></i></span>
+                                            <span><i class="fas fa-calendar-alt text-warning"></i></span>
                                         </div>
                                         <p>
-                                            Control total sobre cuentas de usuario, asignación de roles, permisos especiales
-                                            y gestión de información personal de estudiantes y staff.
+                                            Reporte especializado con gráficos y análisis de tendencias de consumo,
+                                            preferencias alimentarias y patrones de uso del comedor por mes.
                                         </p>
+                                        <div style="margin-top: 15px; text-align: center;">
+                                            @Html.ActionLink("Generar Análisis", "ReporteTendencias", new { formato = "pdf" }, new
+                                            {
+                                                @class = "nav-link",
+                                                @style = "background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #8b4513; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(252, 182, 159, 0.3);"
+                                            })
+                                        </div>
                                     </div>
                                 </li>
+
                                 <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="500ms">
                                     <div class="item">
                                         <div class="item-title">
-                                            <h2>Reportes y Analytics Avanzados</h2>
+                                            <h2>Reporte de Costos y Presupuesto</h2>
                                             <div class="border-bottom"></div>
-                                            <span><i class="fas fa-check text-success"></i></span>
+                                            <span><i class="fas fa-dollar-sign text-success"></i></span>
                                         </div>
                                         <p>
-                                            Genera reportes detallados de ventas, consumo, inventario, análisis de tendencias
-                                            y métricas de rendimiento del comedor.
+                                            Análisis financiero detallado incluyendo costos de proveedores, proyecciones presupuestarias
+                                            y recomendaciones para optimización de recursos del comedor.
                                         </p>
-                                    </div>
-                                </li>
-                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
-                                    <div class="item">
-                                        <div class="item-title">
-                                            <h2>Control de Inventario Inteligente</h2>
-                                            <div class="border-bottom"></div>
-                                            <span><i class="fas fa-check text-success"></i></span>
+                                        <div style="margin-top: 15px; text-align: center;">
+                                            @Html.ActionLink("Ver Reporte Financiero", "ReporteCostos", new { formato = "pdf" }, new
+                                            {
+                                                @class = "nav-link",
+                                                @style = "background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2c3e50; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(168, 237, 234, 0.3);"
+                                            })
                                         </div>
-                                        <p>
-                                            Monitoreo de stock en tiempo real, alertas de reposición automática,
-                                            gestión de proveedores y optimización de recursos.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="700ms">
-                                    <div class="item">
-                                        <div class="item-title">
-                                            <h2>Configuración del Sistema</h2>
-                                            <div class="border-bottom"></div>
-                                            <span><i class="fas fa-check text-success"></i></span>
-                                        </div>
-                                        <p>
-                                            Personalización completa de horarios, precios, promociones, políticas de descuento
-                                            y todos los parámetros operativos del comedor.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="800ms">
-                                    <div class="item">
-                                        <div class="item-title">
-                                            <h2>Dashboard de Monitoreo 24/7</h2>
-                                            <div class="border-bottom"></div>
-                                            <span><i class="fas fa-check text-success"></i></span>
-                                        </div>
-                                        <p>
-                                            Panel de control en tiempo real con métricas de rendimiento, notificaciones automáticas
-                                            y alertas del sistema para una gestión proactiva.
-                                        </p>
                                     </div>
                                 </li>
                             </ul>

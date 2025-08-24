@@ -1,22 +1,133 @@
 ﻿@model IEnumerable<TCU_Comedor.Models.ConsultaNutricional>
+@using Microsoft.AspNet.Identity
 
-@{
-    ViewBag.Title = "Consultas Nutricionales";
-}
+<!DOCTYPE html>
+<html class="no-js">
 
-<h2>Consultas Nutricionales</h2>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Consultas Nutricionales - Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.Detalles)</th>
-        <th>@Html.DisplayNameFor(model => model.FechaConsultaNutricional)</th>
-    </tr>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Detalles)</td>
-            <td>@Html.DisplayFor(modelItem => item.FechaConsultaNutricional)</td>
-        </tr>
-    }
-</table>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/IndexAdm.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndAdministrador", "RolesPropuestos")">Inicio</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Gestión Menú</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexUsuarios", "Usuarios")">Usuarios</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index", "Reportes")">Reportes</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Inventario", "Admin")">Proveedor</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Admin")">Perfil</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <div class="title">
+                            <h3>Consultas <span>Nutricionales</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1 class="heading">Historial de <span>Consultas</span> Nutricionales</h1>
+                        <ul>
+                            @foreach (var item in Model)
+                            {
+                                <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms" style="background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px; padding: 20px;">
+                                    <div class="blog-img">
+                                        <img src="~/Imagen/perfil.jpeg" alt="blog-img">
+                                    </div>
+                                    <div class="content-right">
+                                        <h3 style="display: flex; align-items: center; gap: 15px;">
+                                            <i class="fas fa-calendar-alt" style="color: #f39c12;"></i>
+                                            @Html.DisplayFor(modelItem => item.FechaConsultaNutricional)
+                                        </h3>
+                                        <p>
+                                            <i class="fas fa-file-medical-alt"></i>
+                                            @Html.DisplayFor(modelItem => item.Detalles)
+                                        </p>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="~/css/comedorSettings.js"></script>
+</body>
+
+</html>

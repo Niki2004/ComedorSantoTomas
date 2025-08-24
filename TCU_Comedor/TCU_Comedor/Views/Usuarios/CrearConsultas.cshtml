@@ -1,48 +1,222 @@
 ﻿@model TCU_Comedor.Models.ConsultaServicio
+@using Microsoft.AspNet.Identity
 
-@{
-    ViewBag.Title = "Crear Consultas";
-}
+<!DOCTYPE html>
+<html class="no-js">
 
-<h2>Crear Consulta</h2>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Crear Consulta - Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <div class="form-horizontal">
-        <h4>ConsultaServicio</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/IndexAdm.css" rel="stylesheet" />
 
-        <div class="form-group">
-            @Html.Label("Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="text" class="form-control" value="@ViewBag.NombreUsuario" readonly />
+</head>
+
+<body>
+
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Inicio</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Gestión Menú</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexUsuarios", "Usuarios")">Usuarios</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexConsultas", "Usuarios")">Consultas</a>  @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index", "Reportes")">Reportes</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Inventario", "Admin")">Proveedor</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Admin")">Perfil</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a> @*Listo*@
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
+    </nav>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Detalle, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Detalle, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Detalle, "", new { @class = "text-danger" })
+    <section id="slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <div class="title">
+                            <h3>Crear Nueva <span>Consulta</span></h3>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FechaExperienciaNutricional, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.FechaExperienciaNutricional, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
-                @Html.ValidationMessageFor(model => model.FechaExperienciaNutricional, "", new { @class = "text-danger" })
+    <section id="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <img class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" src="~/Imagen/cooker-img.png"
+                             alt="cooker-img">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
+                            Envía tu
+                            <span>Consulta</span> </br>al equipo de <span>Soporte</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                            Estamos aquí para ayudarte. Comparte tus dudas, sugerencias o cualquier consulta relacionada</br>
+                            con el servicio del comedor. Nuestro equipo se pondrá en contacto contigo a la brevedad</br>
+                            para brindarte la mejor atención y resolver todas tus inquietudes de manera eficiente.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-success" />
-                @Html.ActionLink("Regresar", "IndexConsultas", null, new { @class = "btn btn-secondary" })
+    <section id="price">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                            Formulario de
+                            <span>CONSULTA</span> de <span>SERVICIO</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                            Completa el siguiente formulario para enviar tu consulta.
+                            Todos los campos son importantes para brindarte la mejor asistencia.
+                        </p>
+
+                        <div class="pricing-list">
+                            <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="500ms" style="background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); padding: 40px; margin: 30px 0;">
+
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div style="text-align: center; margin-bottom: 30px;">
+                                        <i class="fas fa-headset fa-3x" style="color: #f39c12; margin-bottom: 15px;"></i>
+                                        <h4 style="color: #2c3e50; font-weight: 600;">Datos de la Consulta</h4>
+                                        <hr style="width: 50%; border-color: #f39c12;">
+                                    </div>
+
+                                    @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+                                    <div class="item" style="margin-bottom: 25px;">
+                                        <div class="item-title">
+                                            <h3 style="display: flex; align-items: center; gap: 10px; color: #2c3e50; margin-bottom: 10px;">
+                                                <i class="fas fa-user" style="color: #f39c12;"></i>
+                                                Usuario
+                                            </h3>
+                                        </div>
+                                        <input type="text" class="form-control" value="@ViewBag.NombreUsuario" readonly
+                                               style="padding: 15px; border: 2px solid #e9ecef; border-radius: 8px; font-size: 16px; background-color: #f8f9fa;" />
+                                    </div>
+
+                                    <div class="item" style="margin-bottom: 25px;">
+                                        <div class="item-title">
+                                            <h3 style="display: flex; align-items: center; gap: 10px; color: #2c3e50; margin-bottom: 10px;">
+                                                <i class="fas fa-comment-dots" style="color: #f39c12;"></i>
+                                                @Html.LabelFor(model => model.Detalle, "Detalle de la Consulta")
+                                            </h3>
+                                        </div>
+                                        @Html.TextAreaFor(model => model.Detalle, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Describe tu consulta, duda o sugerencia en detalle...",
+                                            @style = "padding: 15px; border: 2px solid #e9ecef; border-radius: 8px; font-size: 16px; min-height: 120px; resize: vertical;"
+                                        })
+                                        @Html.ValidationMessageFor(model => model.Detalle, "", new { @class = "text-danger", @style = "display: block; margin-top: 5px; font-size: 14px;" })
+                                    </div>
+
+                                    <div class="item" style="margin-bottom: 30px;">
+                                        <div class="item-title">
+                                            <h3 style="display: flex; align-items: center; gap: 10px; color: #2c3e50; margin-bottom: 10px;">
+                                                <i class="fas fa-calendar-alt" style="color: #f39c12;"></i>
+                                                @Html.LabelFor(model => model.FechaExperienciaNutricional, "Fecha de Experiencia")
+                                            </h3>
+                                        </div>
+                                        @Html.TextBoxFor(model => model.FechaExperienciaNutricional, "{0:yyyy-MM-dd}", new
+                                        {
+                                            @class = "form-control",
+                                            type = "date",
+                                            @style = "padding: 15px; border: 2px solid #e9ecef; border-radius: 8px; font-size: 16px;"
+                                        })
+                                        @Html.ValidationMessageFor(model => model.FechaExperienciaNutricional, "", new { @class = "text-danger", @style = "display: block; margin-top: 5px; font-size: 14px;" })
+                                    </div>
+
+                                    <div style="text-align: center; margin-top: 40px;">
+                                        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                                            <input type="submit" value="Enviar Consulta"
+                                                   style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 15px 40px; border: none; border-radius: 25px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3); transition: all 0.3s ease;"
+                                                   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(40, 167, 69, 0.4)';"
+                                                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(40, 167, 69, 0.3)';" />
+
+                                            @Html.ActionLink("Cancelar", "IndexConsultas", null, new
+                                            {
+                                                @style = "background: linear-gradient(135deg, #6c757d 0%, #495057 100%); color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-size: 16px; font-weight: 600; display: inline-block; box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3); transition: all 0.3s ease;",
+                                                onmouseover = "this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(108, 117, 125, 0.4)';",
+                                                onmouseout = "this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(108, 117, 125, 0.3)';"
+                                            })
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-}
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="~/css/comedorSettings.js"></script>
+</body>
+
+</html>
