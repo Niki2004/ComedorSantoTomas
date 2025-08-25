@@ -1,0 +1,445 @@
+﻿@using Microsoft.AspNet.Identity
+@model List<TCU_Comedor.Models.Proveedor>
+
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reporte de Costos - Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/IndexAdm.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Inicio</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Gestión Menú</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexUsuarios", "Usuarios")">Usuarios</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexConsultas", "Usuarios")">Consultas</a>  @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index", "Reportes")">Reportes</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Inventario", "Menu")">Proveedor</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Usuarios")">Perfil</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a> @*Listo*@
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <div class="title">
+                            <h3>Reporte de <span>Costos</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <img class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" src="~/Imagen/cooker-img.png"
+                             alt="cooker-img">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
+                            Control
+                            <span>Financiero</span> </br>y <span>Presupuesto</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                            Mantén un control detallado de los costos del comedor institucional. Analiza gastos por</br>
+                            proveedor, categoría y genera proyecciones presupuestarias para una gestión financiera</br>
+                            eficiente y optimización de recursos económicos del programa alimentario.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                            Análisis de
+                            <span>COSTOS</span> y <span>PROVEEDORES</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                            Información financiera detallada de todos los proveedores del comedor institucional.
+                            Herramientas para análisis de costos, control presupuestario y toma de decisiones estratégicas.
+                        </p>
+                        <div class="pricing-list">
+                            <div class="title">
+                                <h3>Reportes <span>Financieros</span></h3>
+                            </div>
+                            <ul>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Reporte de Costos y Presupuesto</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-dollar-sign text-success"></i></span>
+                                        </div>
+                                        <p>
+                                            Análisis financiero detallado incluyendo costos de proveedores, proyecciones presupuestarias
+                                            y recomendaciones para optimización de recursos del comedor.
+                                        </p>
+                                        <div style="margin-top: 15px; text-align: center;">
+                                            @Html.ActionLink("Descargar Reporte PDF", "ReporteCostos", new { formato = "pdf" }, new
+                                            {
+                                                @class = "nav-link",
+                                                @style = "background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2c3e50; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(168, 237, 234, 0.3); margin-right: 10px;"
+                                            })
+                                            @Html.ActionLink("Ver Análisis", "ReporteCostos", new { }, new
+                                            {
+                                                @class = "nav-link",
+                                                @style = "background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);"
+                                            })
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Resumen Financiero</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-chart-pie text-info"></i></span>
+                                        </div>
+                                        <p>
+                                            Métricas clave del presupuesto del comedor incluyendo totales por categoría,
+                                            distribución de gastos y análisis de eficiencia financiera.
+                                        </p>
+                                        <div style="margin-top: 20px;">
+                                            <div class="financial-summary" style="background: #f8f9fa; padding: 25px; border-radius: 15px;">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="financial-item" style="text-align: center; padding: 15px;">
+                                                            <div style="width: 70px; height: 70px; margin: 0 auto 15px; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                                <i class="fas fa-money-bill-wave" style="color: white; font-size: 2em;"></i>
+                                                            </div>
+                                                            <h4 style="color: #495057; margin: 0; font-size: 1.5em;">₡@Model.Sum(p => decimal.Parse(p.Costos)).ToString("N0")</h4>
+                                                            <p style="color: #6c757d; margin: 5px 0 0 0; font-size: 0.9em; font-weight: 500;">Costo Total</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="financial-item" style="text-align: center; padding: 15px;">
+                                                            <div style="width: 70px; height: 70px; margin: 0 auto 15px; background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                                <i class="fas fa-building" style="color: white; font-size: 2em;"></i>
+                                                            </div>
+                                                            <h4 style="color: #495057; margin: 0; font-size: 1.5em;">@Model.Count()</h4>
+                                                            <p style="color: #6c757d; margin: 5px 0 0 0; font-size: 0.9em; font-weight: 500;">Proveedores</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="financial-item" style="text-align: center; padding: 15px;">
+                                                            <div style="width: 70px; height: 70px; margin: 0 auto 15px; background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                                <i class="fas fa-calculator" style="color: white; font-size: 2em;"></i>
+                                                            </div>
+                                                            <h4 style="color: #495057; margin: 0; font-size: 1.5em;">₡@((decimal)Model.Sum(p => decimal.Parse(p.Costos)) / Model.Count()).ToString("N0")</h4>
+                                                            <p style="color: #6c757d; margin: 5px 0 0 0; font-size: 0.9em; font-weight: 500;">Costo Promedio</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="financial-item" style="text-align: center; padding: 15px;">
+                                                            <div style="width: 70px; height: 70px; margin: 0 auto 15px; background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                                <i class="fas fa-tags" style="color: white; font-size: 2em;"></i>
+                                                            </div>
+                                                            <h4 style="color: #495057; margin: 0; font-size: 1.5em;">@Model.GroupBy(p => p.CategoriaProveedor.Descripcion).Count()</h4>
+                                                            <p style="color: #6c757d; margin: 5px 0 0 0; font-size: 0.9em; font-weight: 500;">Categorías</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="500ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Distribución de Costos por Categoría</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-chart-donut text-warning"></i></span>
+                                        </div>
+                                        <p>
+                                            Visualización de la distribución porcentual de costos por categoría de proveedor,
+                                            identificando áreas de mayor inversión y oportunidades de optimización.
+                                        </p>
+                                        <div style="margin-top: 20px;">
+                                            <div class="cost-distribution" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                                @{
+                                                    var categorias = Model.GroupBy(p => p.CategoriaProveedor.Descripcion)
+                                                                          .Select(g => new
+                                                                          {
+                                                                              Categoria = g.Key,
+                                                                              Total = g.Sum(p => decimal.Parse(p.Costos)),
+                                                                              Proveedores = g.Count()
+                                                                          }).ToList();
+                                                    var total = categorias.Sum(c => c.Total);
+                                                }
+                                                <h5 style="text-align: center; color: #495057; margin-bottom: 25px;">
+                                                    <i class="fas fa-chart-pie" style="color: #ffc107; margin-right: 8px;"></i>
+                                                    Análisis por Categorías
+                                                </h5>
+                                                <div class="row">
+                                                    @foreach (var categoria in categorias)
+                                                    {
+                                                        var porcentaje = Math.Round((categoria.Total / total) * 100, 1);
+                                                        var colorIndex = categorias.IndexOf(categoria) % 4;
+                                                        var colores = new[] { "#667eea", "#ffc107", "#28a745", "#dc3545" };
+                                                        var color = colores[colorIndex];
+
+                                                        <div class="col-md-6" style="margin-bottom: 20px;">
+                                                            <div class="category-item" style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 5px solid @color;">
+                                                                <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 10px;">
+                                                                    <h6 style="margin: 0; color: #495057; font-weight: bold;">@categoria.Categoria</h6>
+                                                                    <span style="color: @color; font-weight: bold; font-size: 1.1em;">@porcentaje%</span>
+                                                                </div>
+                                                                <div style="background: #e9ecef; height: 8px; border-radius: 4px; margin-bottom: 10px;">
+                                                                    <div style="background: @color; height: 100%; width: @porcentaje%; border-radius: 4px; transition: width 0.5s ease;"></div>
+                                                                </div>
+                                                                <div style="display: flex; justify-content: between; font-size: 0.85em; color: #6c757d;">
+                                                                    <span>₡@categoria.Total.ToString("N0")</span>
+                                                                    <span>@categoria.Proveedores proveedores</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Detalle de Proveedores y Costos</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-list-ul text-primary"></i></span>
+                                        </div>
+                                        <p>
+                                            Tabla completa con información detallada de cada proveedor, incluyendo categoría,
+                                            costos individuales y análisis comparativo para gestión eficiente de recursos.
+                                        </p>
+                                        <div style="margin-top: 20px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-hover" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                                    <thead style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2c3e50;">
+                                                        <tr>
+                                                            <th style="padding: 15px; border: none;">#</th>
+                                                            <th style="padding: 15px; border: none;"><i class="fas fa-building"></i> Proveedor</th>
+                                                            <th style="padding: 15px; border: none;"><i class="fas fa-tags"></i> Categoría</th>
+                                                            <th style="padding: 15px; border: none;"><i class="fas fa-money-bill"></i> Costo</th>
+                                                            <th style="padding: 15px; border: none;"><i class="fas fa-percentage"></i> % del Total</th>
+                                                            <th style="padding: 15px; border: none;"><i class="fas fa-chart-bar"></i> Visualización</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @{
+                                                            int contador = 1;
+                                                            var totalCostos = Model.Sum(p => decimal.Parse(p.Costos));
+                                                        }
+                                                        @foreach (var proveedor in Model.OrderByDescending(p => decimal.Parse(p.Costos)))
+                                                        {
+                                                            var costo = decimal.Parse(proveedor.Costos);
+                                                            var porcentajeTotal = Math.Round((costo / totalCostos) * 100, 2);
+
+                                                            <tr style="transition: all 0.3s ease;">
+                                                                <td style="padding: 12px 15px; vertical-align: middle;">
+                                                                    <span style="background: #e9ecef; padding: 5px 10px; border-radius: 15px; font-weight: bold; color: #495057;">@contador</span>
+                                                                </td>
+                                                                <td style="padding: 12px 15px; vertical-align: middle;">
+                                                                    <div style="display: flex; align-items: center;">
+                                                                        <div style="width: 35px; height: 35px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                                                                            <span style="color: #2c3e50; font-weight: bold; font-size: 0.9em;">@proveedor.NombreProveedor.Substring(0, 1).ToUpper()</span>
+                                                                        </div>
+                                                                        <strong style="color: #495057;">@proveedor.NombreProveedor</strong>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="padding: 12px 15px; vertical-align: middle;">
+                                                                    <span style="background: #d1ecf1; color: #0c5460; padding: 4px 12px; border-radius: 15px; font-size: 0.85em; font-weight: 500;">
+                                                                        @proveedor.CategoriaProveedor.Descripcion
+                                                                    </span>
+                                                                </td>
+                                                                <td style="padding: 12px 15px; vertical-align: middle;">
+                                                                    <strong style="color: #28a745; font-size: 1.1em;">₡@costo.ToString("N0")</strong>
+                                                                </td>
+                                                                <td style="padding: 12px 15px; vertical-align: middle;">
+                                                                    <span style="color: #6c757d; font-weight: 600;">@porcentajeTotal%</span>
+                                                                </td>
+                                                                <td style="padding: 12px 15px; vertical-align: middle;">
+                                                                    <div style="background: #e9ecef; height: 8px; border-radius: 4px; width: 100px; position: relative;">
+                                                                        <div style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); height: 100%; width: @Math.Min(porcentajeTotal * 2, 100)%; border-radius: 4px;"></div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            contador++;
+                                                        }
+                                                    </tbody>
+                                                    <tfoot style="background: #f8f9fa;">
+                                                        <tr style="font-weight: bold;">
+                                                            <td colspan="3" style="padding: 15px; text-align: right; color: #495057;">TOTAL GENERAL:</td>
+                                                            <td style="padding: 15px; color: #28a745; font-size: 1.2em;">₡@totalCostos.ToString("N0")</td>
+                                                            <td style="padding: 15px; color: #495057;">100%</td>
+                                                            <td style="padding: 15px;"></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="700ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Análisis Financiero y Recomendaciones</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-lightbulb text-success"></i></span>
+                                        </div>
+                                        <p>
+                                            Insights estratégicos basados en el análisis de costos para optimizar el presupuesto
+                                            y mejorar la eficiencia financiera del comedor institucional.
+                                        </p>
+                                        <div style="margin-top: 20px;">
+                                            <div class="financial-insights">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="insight-card" style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid #28a745;">
+                                                            <h6 style="color: #28a745; margin: 0 0 10px 0;"><i class="fas fa-thumbs-up"></i> Fortaleza Financiera</h6>
+                                                            <p style="margin: 0; color: #495057; font-size: 0.9em;">
+                                                                La diversificación de proveedores mantiene un balance adecuado
+                                                                de costos y reduce riesgos de dependencia única.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="insight-card" style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid #ffc107;">
+                                                            <h6 style="color: #856404; margin: 0 0 10px 0;"><i class="fas fa-search-dollar"></i> Oportunidad de Ahorro</h6>
+                                                            <p style="margin: 0; color: #495057; font-size: 0.9em;">
+                                                                Revisar negociaciones con proveedores de mayor costo podría
+                                                                generar ahorros significativos sin afectar la calidad.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="insight-card" style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid #17a2b8;">
+                                                            <h6 style="color: #0c5460; margin: 0 0 10px 0;"><i class="fas fa-chart-line"></i> Tendencia Estable</h6>
+                                                            <p style="margin: 0; color: #495057; font-size: 0.9em;">
+                                                                Los costos se mantienen dentro del rango presupuestario
+                                                                establecido, mostrando un control financiero efectivo.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="insight-card" style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid #dc3545;">
+                                                            <h6 style="color: #721c24; margin: 0 0 10px 0;"><i class="fas fa-clipboard-check"></i> Recomendación</h6>
+                                                            <p style="margin: 0; color: #495057; font-size: 0.9em;">
+                                                                Implementar evaluaciones trimestrales de proveedores para
+                                                                mantener competitividad y calidad en el servicio.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Botón para regresar -->
+                        <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="800ms" style="text-align: center; margin-top: 30px;">
+                            @Html.ActionLink("← Volver a Reportes", "Index", "Reportes", new { }, new
+                            {
+                                @class = "nav-link",
+                                @style = "background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #8b4513; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(252, 182, 159, 0.3);"
+                            })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="~/css/comedorSettings.js"></script>
+
+    <style>
+        .financial-item {
+            transition: transform 0.3s ease;
+        }
+
+            .financial-item:hover {
+                transform: translateY(-5px);
+            }
+
+        .category-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }

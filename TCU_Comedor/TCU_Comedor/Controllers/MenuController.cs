@@ -65,5 +65,40 @@ namespace TCU_Comedor.Controllers
             return View(menu);
         }
 
+        // GET: Menu
+        [Authorize(Roles = "Administrador, Chef")]
+        public ActionResult Inventario()
+        {
+            var proveedor = BaseDatos.Proveedor
+             .Include("CategoriaProveedor")
+            .ToList();
+
+            return View(proveedor);
+        }
+
+        [Authorize(Roles = "Chef")]
+        [HttpGet]
+        public ActionResult CrearInv()
+        {
+            ViewBag.Categorias = new SelectList(BaseDatos.CategoriaProveedor, "Id_Alergia", "Descripcion");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CrearInv(Proveedor proveedor)
+        {
+            if (ModelState.IsValid)
+            {
+                BaseDatos.Proveedor.Add(proveedor);
+                BaseDatos.SaveChanges();
+                return RedirectToAction("Inventario");
+            }
+
+            ViewBag.Categorias = new SelectList(BaseDatos.CategoriaProveedor, "Id_Alergia", "Descripcion", proveedor.Id_Proveedor);
+            return View(proveedor);
+        }
+
+
     }
 }

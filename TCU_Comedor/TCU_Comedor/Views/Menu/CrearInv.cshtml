@@ -1,0 +1,167 @@
+﻿@model TCU_Comedor.Models.Proveedor
+
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="~/css/themes.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/Menu.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndChef", "RolesPropuestos")">Inicio</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("PedidosHoy", "Cocineras")">Pedidos del Día</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Inventario", "Cocineras")">Ingredientes</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Recetas", "Cocineras")">Recetas</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Cocineras")">Perfil</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="crear-proveedor">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow-lg border-0 rounded-3">
+                        <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0"><i class="fas fa-plus"></i> Crear Nuevo Proveedor</h4>
+                            <br />
+                        </div>
+                        <div class="card-body">
+                            @using (Html.BeginForm("CrearInv", "Menu", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-group mb-3">
+                                    @Html.LabelFor(m => m.Id_CategoriaProveedor, "Categoría", new { @class = "form-label fw-bold" })
+                                    @Html.DropDownList("Id_CategoriaProveedor", (SelectList)ViewBag.Categorias, "Seleccione una categoría", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Id_CategoriaProveedor, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    @Html.LabelFor(m => m.NombreProveedor, "Nombre del Proveedor", new { @class = "form-label fw-bold" })
+                                    @Html.TextBoxFor(m => m.NombreProveedor, new { @class = "form-control", placeholder = "Ej: Proveedor XYZ" })
+                                    @Html.ValidationMessageFor(m => m.NombreProveedor, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    @Html.LabelFor(m => m.NumeroProveedor, "Número del Proveedor", new { @class = "form-label fw-bold" })
+                                    @Html.TextBoxFor(m => m.NumeroProveedor, new { @class = "form-control", placeholder = "Ej: 8888-8888" })
+                                    @Html.ValidationMessageFor(m => m.NumeroProveedor, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    @Html.LabelFor(m => m.CorreoProveedor, "Correo del Proveedor", new { @class = "form-label fw-bold" })
+                                    @Html.TextBoxFor(m => m.CorreoProveedor, new { @class = "form-control", placeholder = "Ej: correo@proveedor.com" })
+                                    @Html.ValidationMessageFor(m => m.CorreoProveedor, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    @Html.LabelFor(m => m.Costos, "Costos", new { @class = "form-label fw-bold" })
+                                    @Html.TextBoxFor(m => m.Costos, new { @class = "form-control", placeholder = "Ej: $500" })
+                                    @Html.ValidationMessageFor(m => m.Costos, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-success me-2">
+                                        <i class="fas fa-save"></i> Guardar
+                                    </button>
+                                    <a href="@Url.Action("Inventario", "Menu")" class="btn btn-secondary">
+                                        <i class="fas fa-times"></i> Cancelar
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <img class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" src="~/Imagen/cooker-img.png"
+                             alt="cooker-img">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
+                            Nuestro
+                            <span>Comedor</span> </br>tiene la mejor calidad en las <span>Comidas</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                            En el Comedor Escolar de la Escuela Santo Tomás, cada plato servido es mucho más que alimento: es cuidado, amor y esperanza.</br>
+                            Es un espacio donde los niños y niñas encuentran no solo nutrición, sino también alegría, amistad y el calor de una gran
+                            familia. </br> Cada sonrisa compartida en la mesa nos recuerda que aquí se siembra futuro, porque un corazón lleno y una mente
+                            nutrida son la base </br> para soñar y aprender.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="~/css/comedorSettings.js"></script>
+</body>
+
+</html>

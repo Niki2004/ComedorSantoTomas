@@ -1,0 +1,115 @@
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Usuarios - Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/IndexAdm.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+    <!-- Add CSRF Token -->
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    }
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="container-fluid d-flex justify-content-between">
+                                        <ul class="navbar-nav">
+                                            @if (Request.IsAuthenticated)
+                                            {
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" href="@Url.Action("Inicio", "RolesPropuestos")">Inicio</a>
+                                                </li>
+                                            }
+                                        </ul>
+
+                                        <ul class="navbar-nav">
+                                            @if (Request.IsAuthenticated)
+                                            {
+                                                <li class="nav-item">
+                                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                                    {
+                                                        @Html.AntiForgeryToken()
+                                                        <button type="submit" class="nav-link btn btn-link text-dark" style="padding: 0; text-decoration: none;">
+                                                            <i class="fas fa-right-from-bracket"></i>
+                                                        </button>
+                                                    }
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </nav>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            @foreach (var user in Model)
+            {
+                var initial = !string.IsNullOrEmpty(user.NombreCompleto) ? user.NombreCompleto.Substring(0, 1).ToUpper() : "?";
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card p-4 shadow-lg text-center"
+                         style="border-radius: 20px; transform: scale(1.05); transition: 0.3s ease;">
+
+                        <!-- Círculo con inicial -->
+                        <div style="width:80px; height:80px; border-radius:50%; background-color:#667eea; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:2em; margin:0 auto 15px auto;">
+                            @initial
+                        </div>
+
+                        <!-- Nombre y correo -->
+                        <h4 class="mb-2">@user.NombreCompleto</h4>
+                        <p class="mb-0 text-muted">@user.Email</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

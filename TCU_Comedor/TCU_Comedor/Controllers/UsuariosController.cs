@@ -82,7 +82,17 @@ namespace TCU_Comedor.Controllers
             return View(consultaServicio);
         }
 
+        [Authorize(Roles = "Administrador,Usuario,Chef")]
+        public ActionResult Perfil()
+        {
+            var usuarios = (from u in BaseDatos.Users
+                            join ur in BaseDatos.Set<IdentityUserRole>() on u.Id equals ur.UserId
+                            join r in BaseDatos.Roles on ur.RoleId equals r.Id
+                            where r.Name == "Usuario"
+                            select u).ToList();
 
+            return View(usuarios);
+        }
 
     }
 }

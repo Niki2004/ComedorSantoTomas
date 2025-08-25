@@ -60,13 +60,13 @@
                                                 <a class="nav-link" href="@Url.Action("IndexConsultas", "Usuarios")">Consultas</a>  @*Listo*@
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Index", "Reportes")">Reportes</a>
+                                                <a class="nav-link" href="@Url.Action("Index", "Reportes")">Reportes</a> @*Listo*@
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Inventario", "Admin")">Proveedor</a>
+                                                <a class="nav-link" href="@Url.Action("Inventario", "Menu")">Proveedor</a> @*Listo*@
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Perfil", "Admin")">Perfil</a>
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Usuarios")">Perfil</a> @*Listo*@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a> @*Listo*@
@@ -117,100 +117,7 @@
             </div>
         </div>
     </section>
-
-    <section id="blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <h1 class="heading">Tipos de <span>Reportes</span> Disponibles</h1>
-                        <ul>
-                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms">
-                                <div class="blog-img">
-                                    <i class="fas fa-users fa-3x" style="color: #3498db;"></i>
-                                </div>
-                                <div class="content-right">
-                                    <h3>Reporte de Usuarios</h3>
-                                    <p>
-                                        Listado completo de todos los usuarios registrados en el sistema del comedor,
-                                        incluyendo información personal, roles y fechas de registro.
-                                    </p>
-                                    <div style="margin-top: 15px;">
-                                        @Html.ActionLink("Generar PDF", "ReporteUsuarios", new { formato = "pdf" }, new
-                                        {
-                                            @class = "nav-link",
-                                            @style = "background-color: #e74c3c; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold;"
-                                        })
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="400ms">
-                                <div class="content-left">
-                                    <h3>Reporte de Menús</h3>
-                                    <p>
-                                        Detalle de todos los menús registrados por categoría (desayuno, almuerzo, merienda),
-                                        incluyendo fechas y análisis de frecuencia de comidas.
-                                    </p>
-                                    <div style="margin-top: 15px;">
-                                        @Html.ActionLink("Generar PDF", "ReporteMenus", new { formato = "pdf" }, new
-                                        {
-                                            @class = "nav-link",
-                                            @style = "background-color: #f39c12; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold;"
-                                        })
-                                    </div>
-                                </div>
-                                <div class="blog-img-2">
-                                    <i class="fas fa-utensils fa-3x" style="color: #f39c12;"></i>
-                                </div>
-                            </li>
-
-                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="500ms">
-                                <div class="blog-img">
-                                    <i class="fas fa-heartbeat fa-3x" style="color: #27ae60;"></i>
-                                </div>
-                                <div class="content-right">
-                                    <h3>Reporte Nutricional</h3>
-                                    <p>
-                                        Información nutricional detallada de los usuarios, incluyendo observaciones,
-                                        restricciones alimentarias y seguimiento personalizado.
-                                    </p>
-                                    <div style="margin-top: 15px;">
-                                        @Html.ActionLink("Generar PDF", "ReporteNutricion", new { formato = "pdf" }, new
-                                        {
-                                            @class = "nav-link",
-                                            @style = "background-color: #27ae60; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold;"
-                                        })
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="600ms">
-                                <div class="content-left">
-                                    <h3>Reporte de Proveedores</h3>
-                                    <p>
-                                        Directorio completo de proveedores por categoría, incluyendo información de contacto,
-                                        costos y análisis de relaciones comerciales.
-                                    </p>
-                                    <div style="margin-top: 15px;">
-                                        @Html.ActionLink("Generar PDF", "ReporteProveedores", new { formato = "pdf" }, new
-                                        {
-                                            @class = "nav-link",
-                                            @style = "background-color: #9b59b6; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold;"
-                                        })
-                                    </div>
-                                </div>
-                                <div class="blog-img-2">
-                                    <i class="fas fa-truck fa-3x" style="color: #9b59b6;"></i>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
     <section id="price">
         <div class="container">
             <div class="row">
@@ -241,7 +148,7 @@
                                             resumen nutricional y análisis de proveedores en un solo documento.
                                         </p>
                                         <div style="margin-top: 15px; text-align: center;">
-                                            @Html.ActionLink("Descargar Reporte General", "ReporteGeneral", new { formato = "pdf" }, new
+                                            @Html.ActionLink("Descargar Reporte General", "ReporteUsuarios", new { formato = "pdf" }, new
                                             {
                                                 @class = "nav-link",
                                                 @style = "background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);"
@@ -286,8 +193,8 @@
                                             @Html.ActionLink("Ver Reporte Financiero", "ReporteCostos", new { formato = "pdf" }, new
                                             {
                                                 @class = "nav-link",
-                                                @style = "background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2c3e50; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(168, 237, 234, 0.3);"
-                                            })
+                                                 @style = "background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2c3e50; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(168, 237, 234, 0.3);"
+                                             })
                                         </div>
                                     </div>
                                 </li>

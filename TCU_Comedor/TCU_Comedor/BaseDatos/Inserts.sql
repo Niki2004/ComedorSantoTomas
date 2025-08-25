@@ -51,3 +51,35 @@ VALUES
 ('3', 'Consulta personalizada para control de peso', '2025-08-22'),
 ('1', 'Charla sobre nutrición deportiva y suplementación', '2025-08-23'),
 ('4', 'Taller de cocina saludable y práctica de recetas', '2025-08-24');
+
+-- Insert de CategoriaProveedor
+INSERT INTO CategoriaProveedor (Descripcion)
+VALUES ('Alimentos');
+
+INSERT INTO CategoriaProveedor (Descripcion)
+VALUES ('Bebidas');
+
+INSERT INTO CategoriaProveedor (Descripcion)
+VALUES ('Limpieza');
+
+INSERT INTO CategoriaProveedor (Descripcion)
+VALUES ('Desechables');
+
+INSERT INTO CategoriaProveedor (Descripcion)
+VALUES ('Servicios Generales');
+
+-- Insert de Proveedor
+INSERT INTO Proveedor (Id_CategoriaProveedor, Costos, NombreProveedor, NumeroProveedor, CorreoProveedor)
+VALUES (1, '1000', 'Proveedor ABC', '88881234', 'abc@proveedor.com');
+
+INSERT INTO Proveedor (Id_CategoriaProveedor, Costos, NombreProveedor, NumeroProveedor, CorreoProveedor)
+VALUES (2, '500', 'Bebidas XYZ', '88885678', 'xyz@bebidas.com');
+
+INSERT INTO Proveedor (Id_CategoriaProveedor, Costos, NombreProveedor, NumeroProveedor, CorreoProveedor)
+VALUES (3, '200', 'Limpieza LMN', '88883456', 'lmn@limpieza.com');
+
+INSERT INTO Proveedor (Id_CategoriaProveedor, Costos, NombreProveedor, NumeroProveedor, CorreoProveedor)
+VALUES (4, '350', 'Desechables OPQ', '88887654', 'opq@desechables.com');
+
+INSERT INTO Proveedor (Id_CategoriaProveedor, Costos, NombreProveedor, NumeroProveedor, CorreoProveedor)
+VALUES (1, '1500', 'Frutas y Verduras GHI', '88882345', 'ghi@frutasverduras.com');

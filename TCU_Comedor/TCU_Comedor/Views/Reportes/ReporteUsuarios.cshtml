@@ -1,0 +1,314 @@
+﻿@model IEnumerable<TCU_Comedor.Models.ApplicationUser>
+
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reportes de Usuarios - Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/IndexAdm.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Inicio</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Gestión Menú</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexUsuarios", "Usuarios")">Usuarios</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexConsultas", "Usuarios")">Consultas</a>  @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index", "Reportes")">Reportes</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Inventario", "Admin")">Proveedor</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Admin")">Perfil</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a> @*Listo*@
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <div class="title">
+                            <h3>Reportes de <span>Usuarios</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <img class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" src="~/Imagen/cooker-img.png"
+                             alt="cooker-img">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
+                            Gestión
+                            <span>Integral</span> </br>de <span>Usuarios</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                            Visualiza y descarga información detallada de todos los usuarios del comedor institucional.</br>
+                            Genera reportes en PDF con datos completos para análisis, auditorías internas y seguimiento</br>
+                            de la participación en el programa alimentario de la institución.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1 class="heading wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                            Reportes de
+                            <span>USUARIOS</span> del <span>SISTEMA</span>
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                            Accede a información completa y actualizada de todos los usuarios registrados en el sistema
+                            del comedor institucional. Ideal para gestión administrativa y control de acceso.
+                        </p>
+                        <div class="pricing-list">
+                            <div class="title">
+                                <h3>Información de <span>Usuarios</span></h3>
+                            </div>
+                            <ul>
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Reporte General de Usuarios</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-users text-primary"></i></span>
+                                        </div>
+                                        <p>
+                                            Listado completo de todos los usuarios registrados en el sistema, incluyendo
+                                            nombres de usuario, correos electrónicos y información básica de contacto.
+                                        </p>
+                                        <div style="margin-top: 15px; text-align: center;">
+                                            @Html.ActionLink("Descargar Reporte PDF", "ReporteUsuarios", new { formato = "pdf" }, new
+                                            {
+                                                @class = "nav-link",
+                                                @style = "background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); margin-right: 10px;"
+                                            })
+                                            @Html.ActionLink("Ver en Pantalla", "ReporteUsuarios", new { }, new
+                                            {
+                                                @class = "nav-link",
+                                                @style = "background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2c3e50; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(168, 237, 234, 0.3);"
+                                            })
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Estadísticas de Usuarios</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-chart-pie text-warning"></i></span>
+                                        </div>
+                                        <p>
+                                            Resumen estadístico con métricas importantes como total de usuarios activos,
+                                            fecha de registro más reciente y distribución por roles del sistema.
+                                        </p>
+                                        <div style="margin-top: 15px; text-align: center;">
+                                            <div class="stats-container" style="background: #f8f9fa; padding: 20px; border-radius: 15px; margin-top: 15px;">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="stat-item" style="text-align: center;">
+                                                            <i class="fas fa-user-check" style="color: #28a745; font-size: 2em; margin-bottom: 10px;"></i>
+                                                            <h4 style="color: #495057; margin: 0;">@Model.Count()</h4>
+                                                            <p style="color: #6c757d; margin: 5px 0 0 0; font-size: 0.9em;">Usuarios Registrados</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="stat-item" style="text-align: center;">
+                                                            <i class="fas fa-envelope" style="color: #17a2b8; font-size: 2em; margin-bottom: 10px;"></i>
+                                                            <h4 style="color: #495057; margin: 0;">@Model.Count(u => !string.IsNullOrEmpty(u.Email))</h4>
+                                                            <p style="color: #6c757d; margin: 5px 0 0 0; font-size: 0.9em;">Con Email Verificado</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="stat-item" style="text-align: center;">
+                                                            <i class="fas fa-calendar-alt" style="color: #ffc107; font-size: 2em; margin-bottom: 10px;"></i>
+                                                            <h4 style="color: #495057; margin: 0;">Activos</h4>
+                                                            <p style="color: #6c757d; margin: 5px 0 0 0; font-size: 0.9em;">Estado del Sistema</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="500ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>Lista Detallada de Usuarios</h2>
+                                            <div class="border-bottom"></div>
+                                            <span><i class="fas fa-list-alt text-success"></i></span>
+                                        </div>
+                                        <p>
+                                            Tabla interactiva con información detallada de cada usuario registrado.
+                                            Perfecta para revisión administrativa y gestión de accesos al comedor.
+                                        </p>
+                                        <div style="margin-top: 20px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-hover" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                                    <thead style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                                                        <tr>
+                                                            <th style="padding: 15px; border: none;">#</th>
+                                                            <th style="padding: 15px; border: none;"><i class="fas fa-user"></i> Usuario</th>
+                                                            <th style="padding: 15px; border: none;"><i class="fas fa-envelope"></i> Correo Electrónico</th>
+                                                            <th style="padding: 15px; border: none;"><i class="fas fa-info-circle"></i> Estado</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @{int contador = 1;}
+                                                        @foreach (var usuario in Model)
+                                                        {
+                                                            <tr style="transition: all 0.3s ease;">
+                                                                <td style="padding: 12px 15px; vertical-align: middle;">
+                                                                    <span style="background: #e9ecef; padding: 5px 10px; border-radius: 15px; font-weight: bold; color: #495057;">@contador</span>
+                                                                </td>
+                                                                <td style="padding: 12px 15px; vertical-align: middle;">
+                                                                    <div style="display: flex; align-items: center;">
+                                                                        <div style="width: 35px; height: 35px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                                                                            <span style="color: white; font-weight: bold; font-size: 0.9em;">@usuario.UserName.Substring(0, 1).ToUpper()</span>
+                                                                        </div>
+                                                                        <strong style="color: #495057;">@usuario.UserName</strong>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="padding: 12px 15px; vertical-align: middle; color: #6c757d;">
+                                                                    @if (!string.IsNullOrEmpty(usuario.Email))
+                                                                    {
+                                                                        <span><i class="fas fa-check-circle text-success"></i> @usuario.Email</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span style="color: #dc3545;"><i class="fas fa-times-circle"></i> Sin correo</span>
+                                                                    }
+                                                                </td>
+                                                                <td style="padding: 12px 15px; vertical-align: middle;">
+                                                                    <span style="background: #d1ecf1; color: #0c5460; padding: 4px 12px; border-radius: 15px; font-size: 0.85em; font-weight: 500;">
+                                                                        <i class="fas fa-circle" style="color: #28a745; font-size: 0.6em; margin-right: 5px;"></i>
+                                                                        Activo
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            contador++;
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Botón para regresar -->
+                        <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms" style="text-align: center; margin-top: 30px;">
+                            @Html.ActionLink("← Volver a Reportes", "Index", "Reportes", new { }, new
+                            {
+                                @class = "nav-link",
+                                @style = "background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #8b4513; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 12px rgba(252, 182, 159, 0.3);"
+                            })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="~/css/comedorSettings.js"></script>
+
+    <style>
+        .table-responsive table tr:hover {
+            background-color: #f8f9fa !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .stats-container .stat-item {
+            transition: transform 0.3s ease;
+        }
+
+            .stats-container .stat-item:hover {
+                transform: translateY(-5px);
+            }
+
+        .pricing-list .item {
+            transition: transform 0.3s ease;
+        }
+
+            .pricing-list .item:hover {
+                transform: translateY(-3px);
+            }
+    </style>
+</body>
+
+</html>
