@@ -176,6 +176,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AjustesController.cs" />
+    <Compile Include="Controllers\AlimentacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -342,6 +343,8 @@
     <Content Include="Views\Menu\Inventario.cshtml" />
     <Content Include="Views\Menu\CrearInv.cshtml" />
     <Content Include="Views\Usuarios\Perfil.cshtml" />
+    <Content Include="Views\Alimentacion\Index.cshtml" />
+    <Content Include="Views\Alimentacion\IndexInforme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
