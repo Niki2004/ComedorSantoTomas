@@ -83,3 +83,13 @@ VALUES (4, '350', 'Desechables OPQ', '88887654', 'opq@desechables.com');
 
 INSERT INTO Proveedor (Id_CategoriaProveedor, Costos, NombreProveedor, NumeroProveedor, CorreoProveedor)
 VALUES (1, '1500', 'Frutas y Verduras GHI', '88882345', 'ghi@frutasverduras.com');
+
+-- Insert de MonitoreoAlimenticio
+INSERT INTO [ComeEduca].[dbo].[MonitoreoAlimenticio] ( [Id_Menu], [Observacion]) 
+VALUES (21, 'La comida fue rica en vitamina E');
+
+INSERT INTO [ComeEduca].[dbo].[MonitoreoAlimenticio] ([Id_Menu], [Observacion]) 
+VALUES (22,'La comida fue rica en vitamina A');
+
+INSERT INTO [ComeEduca].[dbo].[MonitoreoAlimenticio] ([Id_Menu], [Observacion]) 
+VALUES (23,'La comida fue rica en vitamina C');
