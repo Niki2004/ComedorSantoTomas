@@ -60,18 +60,10 @@ namespace TCU_Comedor.Controllers
 
                 BaseDatos.PersonalizacionAlimentaria.Add(modelo);
                 BaseDatos.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexInforme");
             }
             return View(modelo);
         }
-
-        //[Authorize(Roles = "Usuario")]
-        //public ActionResult nutriInfo()
-        //{
-        //    var personal = BaseDatos.Nutricion.Include("ApplicationUser").ToList();
-
-        //    return View(personal);
-        //}
 
         [Authorize(Roles = "Usuario")]
         public ActionResult CreatenutriInfo()
@@ -91,7 +83,7 @@ namespace TCU_Comedor.Controllers
 
                 BaseDatos.Nutricion.Add(modelo);
                 BaseDatos.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexInforme");
             }
 
             return View(modelo);

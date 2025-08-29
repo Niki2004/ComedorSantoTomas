@@ -49,23 +49,26 @@
                                     <div class="collapse navbar-collapse" id="navbarNav">
                                         <ul class="navbar-nav ms-auto">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("IndUsuario", "RolesPropuestos")">Inicio</a>
+                                                <a class="nav-link" href="@Url.Action("IndUsuario", "RolesPropuestos")">Inicio</a> @*Listo*@
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("", "")">Alimentación</a>
+                                                <a class="nav-link" href="@Url.Action("Index", "Menu")">Menu del día</a> @*Listo*@
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("", "")">Galeria</a>
+                                                <a class="nav-link" href="@Url.Action("Index", "Alimentacion")">Alimentación</a>  @*Listo*@
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("", "")">Personalización</a>
+                                                <a class="nav-link" href="@Url.Action("IndexConsultas", "Usuarios")">Consultas</a>  @*Listo*@
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Index", "")">Perfil</a>
+                                                <a class="nav-link" href="@Url.Action("IndexInforme", "Alimentacion")">Informe personal</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Usuarios")">Perfil</a> @*Listo*@
                                             </li>
 
                                             <li class="nav-item">
-                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a> @*Listo*@
                                             </li>
                                         </ul>
                                     </div>
