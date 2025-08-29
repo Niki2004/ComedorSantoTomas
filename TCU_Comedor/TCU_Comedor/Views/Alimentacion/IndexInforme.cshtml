@@ -1,7 +1,250 @@
-﻿
-@{
-    ViewBag.Title = "IndexInforme";
-}
+﻿@model TCU_Comedor.Models.AjustesViewModel
 
-<h2>IndexInforme</h2>
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Comedor Institucional</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="~/css/themes.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/Personalizacion.css" rel="stylesheet" />
+</head>
+
+<body>
+    <section id="hero-area">
+        <img class="img-responsive" src="~/Imagen/header.jpg" alt="" />
+    </section>
+
+    <nav id="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav ms-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndUsuario", "RolesPropuestos")">Inicio</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index", "Menu")">Menu del día</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index", "Alimentacion")">Alimentación</a>  @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexConsultas", "Usuarios")">Consultas</a>  @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("IndexInforme", "Alimentacion")">Informe personal</a> @*Controller listo, falta la vista*@ @*Poner opcion para agregar la nutrición*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Usuarios")">Perfil</a> @*Listo*@
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a> @*Listo*@
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor Ajustes -->
+    <div class="settings-container">
+        <div class="container">
+            <!-- Header -->
+            <div class="settings-header text-center mb-4">
+                <h1 style="color: #FF5333;"><i class="fas fa-utensils"></i> Alimentación del Estudiantes</h1>
+                <p>Gestiona tu información personal y nutricional</p>
+            </div> <br />
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+
+                    <!-- Informes Personales -->
+                    <div class="settings-card mb-4">
+                        <div class="settings-section">
+                            <h3>
+                                <a class="d-flex justify-content-between align-items-center text-decoration-none"
+                                   data-bs-toggle="collapse" href="#collapseInformes" role="button">
+                                    <span><i class="fas fa-file-alt me-2"></i> Informes Personales</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </a>
+                            </h3>
+
+                            <div class="collapse" id="collapseInformes">
+                                @foreach (var item in Model.Informes)
+                                {
+                                    <div class="custom-card mb-3">
+                                        <div class="card-header">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h5 class="card-title mb-1"><i class="fas fa-user-graduate me-2"></i>Informe personal del estudiante</h5>
+                                                    <p class="card-subtitle mb-0">Informe de @item.ApplicationUser.NombreCompleto</p>
+                                                </div>
+                                                <button class="btn btn-outline-info btn-sm toggle-card" data-target="informe-@item.Id">
+                                                    <i class="fas fa-eye me-1"></i> Ver detalles
+                                                </button>
+                                            </div>
+                                            <div class="card-date">
+                                                <small class="text-muted"><i class="fas fa-calendar me-1"></i>@item.FechaPersonalizacion</small>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-details" id="informe-@item.Id">
+                                            <div class="card-body">
+                                                <div class="detail-section">
+                                                    <h6><i class="fas fa-clipboard-list me-2"></i>Detalles del informe</h6>
+                                                    <div class="detail-content">
+                                                        <p>@item.Preferencias</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div class="d-flex justify-content-center mt-4">
+                                    <a href="@Url.Action("CreateInforme", "Alimentacion")" class="btn btn-primary btn-lg custom-btn">
+                                        <i class="fas fa-plus me-2"></i> Crear Nuevo Informe
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información Nutricional -->
+                    <div class="settings-card">
+                        <div class="settings-section">
+                            <h3>
+                                <a class="d-flex justify-content-between align-items-center text-decoration-none"
+                                   data-bs-toggle="collapse" href="#collapseNutricion" role="button">
+                                    <span><i class="fas fa-apple-alt me-2"></i> Información Nutricional</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </a>
+                            </h3>
+
+                            <div class="collapse" id="collapseNutricion">
+                                @foreach (var item in Model.Nutriciones)
+                                {
+                                    <div class="custom-card mb-3">
+                                        <div class="card-header">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h5 class="card-title mb-1"><i class="fas fa-seedling me-2"></i>Nutrición Institucional</h5>
+                                                    <p class="card-subtitle mb-0">Información nutricional actualizada</p>
+                                                </div>
+                                                <button class="btn btn-outline-success btn-sm toggle-card" data-target="nutri-@item.Id">
+                                                    <i class="fas fa-eye me-1"></i> Ver detalles
+                                                </button>
+                                            </div>
+                                            <div class="card-date">
+                                                <small class="text-muted"><i class="fas fa-calendar me-1"></i>@item.FechaNutricion</small>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-details" id="nutri-@item.Id">
+                                            <div class="card-body">
+                                                <div class="detail-section">
+                                                    <h6><i class="fas fa-info-circle me-2"></i>Detalles nutricionales completos</h6>
+                                                    <div class="detail-content">
+                                                        <p>@item.Detalle</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div class="d-flex justify-content-center mt-4">
+                                    <a href="@Url.Action("CreatenutriInfo", "Nutricion")" class="btn btn-success btn-lg custom-btn">
+                                        <i class="fas fa-plus me-2"></i> Agregar Información Nutricional
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Flechas de collapse principales
+            document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(toggle => {
+                const targetSelector = toggle.getAttribute("href");
+                const targetEl = document.querySelector(targetSelector);
+                const icon = toggle.querySelector("i.fas.fa-chevron-down");
+
+                if (!targetEl || !icon) return;
+
+                // Usamos eventos de Bootstrap
+                targetEl.addEventListener('shown.bs.collapse', () => {
+                    icon.classList.add("rotate");
+                });
+
+                targetEl.addEventListener('hidden.bs.collapse', () => {
+                    icon.classList.remove("rotate");
+                });
+            });
+
+            // Toggle de detalles dentro de cada card
+            document.querySelectorAll(".toggle-card").forEach(btn => {
+                btn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute("data-target");
+                    const cardDetails = document.getElementById(targetId);
+                    const icon = this.querySelector("i.fas.fa-eye");
+
+                    if (cardDetails) {
+                        cardDetails.classList.toggle("show");
+
+                        if (cardDetails.classList.contains("show")) {
+                            icon.classList.remove("fa-eye");
+                            icon.classList.add("fa-eye-slash");
+                        } else {
+                            icon.classList.remove("fa-eye-slash");
+                            icon.classList.add("fa-eye");
+                        }
+                    }
+                });
+            });
+        });
+
+
+    </script>
+</body>
+</html>

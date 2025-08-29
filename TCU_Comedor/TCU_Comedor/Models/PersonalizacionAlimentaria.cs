@@ -20,5 +20,8 @@ namespace TCU_Comedor.Models
         [Display(Name = "Preferencia de Comida")]
         public string Preferencias { get; set; }
 
+        [DataType(DataType.Date)]
+        [Display(Name = "Fecha de Registro")]
+        public DateTime FechaPersonalizacion { get; set; }
     }
 }

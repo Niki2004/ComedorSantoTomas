@@ -195,9 +195,14 @@
     <Compile Include="Migrations\202508192104207_MigracionApariencia.designer.cs">
       <DependentUpon>202508192104207_MigracionApariencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202508291638583_FechasNutricion.cs" />
+    <Compile Include="Migrations\202508291638583_FechasNutricion.designer.cs">
+      <DependentUpon>202508291638583_FechasNutricion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AgendaAlimenticia.cs" />
+    <Compile Include="Models\AjustesViewModel.cs" />
     <Compile Include="Models\Alergia.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationRol.cs" />
@@ -242,6 +247,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="css\Personalizacion.css" />
     <Content Include="css\IndexChef.css" />
     <Content Include="css\IndexAdm.css" />
     <Content Include="css\themes.css" />
@@ -382,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202508192104207_MigracionApariencia.resx">
       <DependentUpon>202508192104207_MigracionApariencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202508291638583_FechasNutricion.resx">
+      <DependentUpon>202508291638583_FechasNutricion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,171 @@
+.collapse {
+    transition: height 0.35s ease;
+}
+
+/*        .collapse.show {
+            display: block !important;
+        }
+
+        .collapse:not(.show) {
+            display: none;
+        }
+*/
+/* Rotación de flecha mejorada */
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.35s ease;
+}
+
+/* Estilos para las cards personalizadas */
+.custom-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e3e6f0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+    .custom-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .custom-card .card-header {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-bottom: 1px solid #dee2e6;
+        padding: 1rem 1.25rem;
+    }
+
+    .custom-card .card-title {
+        color: #495057;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .custom-card .card-subtitle {
+        color: #6c757d;
+        font-size: 0.9rem;
+    }
+
+    .custom-card .card-date {
+        margin-top: 0.5rem;
+    }
+
+    .custom-card .card-details {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        opacity: 0;
+    }
+
+        .custom-card .card-details.show {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+    .custom-card .card-body {
+        padding: 1.5rem;
+        background: #f8f9fa;
+    }
+
+.detail-section h6 {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #FF5333;
+}
+
+.detail-content {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #FF5333;
+}
+
+    .detail-content p {
+        margin-bottom: 0;
+        color: #495057;
+        line-height: 1.6;
+    }
+
+/* Botones personalizados */
+.custom-btn {
+    border-radius: 25px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+    .custom-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+.btn-outline-info:hover {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+/* Rotación de flecha */
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+/* Estilos para las secciones principales */
+.settings-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e3e6f0;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.settings-section h3 {
+    margin-bottom: 1.5rem;
+}
+
+    .settings-section h3 a {
+        color: #495057;
+        font-size: 1.25rem;
+        font-weight: 600;
+        padding: 1rem;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #FF5333 0%, #ff6b47 100%);
+        color: white;
+        text-decoration: none;
+    }
+
+        .settings-section h3 a:hover {
+            background: linear-gradient(135deg, #e04326 0%, #FF5333 100%);
+        }
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .custom-card .card-header
+
+{
+    padding: 0.75rem;
+}
+
+.custom-card .card-body {
+    padding: 1rem;
+}
+
+.custom-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+}

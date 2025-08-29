@@ -93,3 +93,23 @@ VALUES (22,'La comida fue rica en vitamina A');
 
 INSERT INTO [ComeEduca].[dbo].[MonitoreoAlimenticio] ([Id_Menu], [Observacion]) 
 VALUES (23,'La comida fue rica en vitamina C');
+
+-- Insert de PersonalizacionAlimentaria
+INSERT INTO [ComeEduca].[dbo].[PersonalizacionAlimentaria] 
+    ([Id], [Preferencias], [FechaPersonalizacion])
+VALUES 
+    ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Es Vegetariana', '2025-08-01'),
+    ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'No puede comer con gluten', '2025-08-05'),
+    ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Alta en proteínas', '2025-08-07'),
+    ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Es Vegana', '2025-08-10'),
+    ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'No puede comer con baja en carbohidratos', '2025-08-12');
+
+-- Insert de Nutricion
+INSERT INTO [ComeEduca].[dbo].[Nutricion] 
+    ([Id], [Detalle], [FechaNutricion])
+VALUES
+    ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Plan alimenticio bajo en sodio', '2025-08-01'),
+    ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Dieta alta en fibra', '2025-08-05'),
+    ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Menú para control de peso', '2025-08-08'),
+    ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Alimentación para deportistas', '2025-08-12'),
+    ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Plan vegetariano balanceado', '2025-08-15');

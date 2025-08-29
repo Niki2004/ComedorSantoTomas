@@ -23,9 +23,23 @@ namespace TCU_Comedor.Controllers
         [Authorize(Roles = "Usuario")]
         public ActionResult IndexInforme()
         {
-            var personal = BaseDatos.PersonalizacionAlimentaria.Include("ApplicationUser").ToList();
+            // Definir el ID del usuario logueado
+            string userId = User.Identity.GetUserId();
 
-            return View(personal);
+            var model = new AjustesViewModel
+            {
+                Informes = BaseDatos.PersonalizacionAlimentaria
+                            .Include("ApplicationUser")
+                            .Where(i => i.Id == userId)   
+                            .ToList(),
+
+                Nutriciones = BaseDatos.Nutricion
+                              .Include("ApplicationUser")
+                              .Where(n => n.Id == userId)  
+                              .ToList()
+            };
+
+            return View(model);
         }
 
         [Authorize(Roles = "Usuario")]
@@ -51,13 +65,13 @@ namespace TCU_Comedor.Controllers
             return View(modelo);
         }
 
-        [Authorize(Roles = "Usuario")]
-        public ActionResult nutriInfo()
-        {
-            var personal = BaseDatos.Nutricion.Include("ApplicationUser").ToList();
+        //[Authorize(Roles = "Usuario")]
+        //public ActionResult nutriInfo()
+        //{
+        //    var personal = BaseDatos.Nutricion.Include("ApplicationUser").ToList();
 
-            return View(personal);
-        }
+        //    return View(personal);
+        //}
 
         [Authorize(Roles = "Usuario")]
         public ActionResult CreatenutriInfo()

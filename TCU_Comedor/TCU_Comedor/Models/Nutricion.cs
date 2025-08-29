@@ -18,6 +18,9 @@ namespace TCU_Comedor.Models
 
         [MaxLength(100)]
         public string Detalle { get; set; }
-        
+
+        [DataType(DataType.Date)]
+        [Display(Name = "Fecha de Registro")]
+        public DateTime FechaNutricion { get; set; }
     }
 }
