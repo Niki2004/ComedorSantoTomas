@@ -113,3 +113,18 @@ VALUES
     ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Menú para control de peso', '2025-08-08'),
     ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Alimentación para deportistas', '2025-08-12'),
     ('6add60d2-129c-4723-bb7c-ddc4e8007cb6', 'Plan vegetariano balanceado', '2025-08-15');
+
+-- Insert de AgendaAlimenticia
+INSERT INTO [ComeEduca].[dbo].[AgendaAlimenticia] (Nombre, FechaAgendaAlimenticia)
+VALUES 
+('Desayuno Escolar', '2025-09-01'),
+('Almuerzo Nutricional', '2025-09-01'),
+('Merienda Saludable', '2025-09-02'),
+('Cena Institucional', '2025-09-02'),
+('Desayuno Especial', '2025-09-03');
+
+-- Insert de Galeria
+INSERT INTO [ComeEduca].[dbo].[Galeria] (Id_AgendaAlimenticia, FechaMenu)
+VALUES
+(1, '2025-09-01'),
+(2, '2025-09-01');

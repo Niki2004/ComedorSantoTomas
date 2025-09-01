@@ -35,7 +35,7 @@ namespace TCU_Comedor.Controllers
             }
             else if (User.IsInRole("Chef"))
             {
-                return RedirectToAction("IndexChef", "RolesPropuestos");
+                return RedirectToAction("IndChef", "RolesPropuestos");
             }
             else if (User.IsInRole("Usuario"))
             {

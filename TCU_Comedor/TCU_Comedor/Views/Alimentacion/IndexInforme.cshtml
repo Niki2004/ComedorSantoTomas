@@ -120,6 +120,7 @@
                                             </div>
                                         </div>
 
+                                        <!-- 👇 SIN "collapse", solo .card-details -->
                                         <div class="card-details" id="informe-@item.Id">
                                             <div class="card-body">
                                                 <div class="detail-section">
@@ -131,6 +132,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 }
 
                                 <div class="d-flex justify-content-center mt-4">
@@ -172,6 +174,7 @@
                                             </div>
                                         </div>
 
+                                        <!-- 👇 SIN "collapse" -->
                                         <div class="card-details" id="nutri-@item.Id">
                                             <div class="card-body">
                                                 <div class="detail-section">
@@ -183,17 +186,18 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 }
 
                                 <div class="d-flex justify-content-center mt-4">
-                                    <a href="@Url.Action("CreatenutriInfo", "Nutricion")" class="btn btn-success btn-lg custom-btn">
+                                    <a href="@Url.Action("CreatenutriInfo", "Alimentacion")" class="btn btn-success btn-lg custom-btn">
                                         <i class="fas fa-plus me-2"></i> Agregar Información Nutricional
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    
                 </div>
             </div>
         </div>

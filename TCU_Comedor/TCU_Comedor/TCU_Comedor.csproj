@@ -177,6 +177,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AjustesController.cs" />
     <Compile Include="Controllers\AlimentacionController.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\GaleriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -353,6 +355,10 @@
     <Content Include="Views\Alimentacion\IndexInforme.cshtml" />
     <Content Include="Views\Alimentacion\CreateInforme.cshtml" />
     <Content Include="Views\Alimentacion\CreatenutriInfo.cshtml" />
+    <Content Include="Views\Galeria\Index.cshtml" />
+    <Content Include="Views\Galeria\CrearGale.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Categoria\CrearCategoria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

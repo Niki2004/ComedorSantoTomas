@@ -1,8 +1,8 @@
--- Cambiar Roles --
+                              -------------------------------------  Cambiar Roles -------------------------------------
 
 -- Usuario
 -- correo: nicolehidalgo437@gmail.com
---Contraseña: 12345678Ni+
+-- contraseña: 12345678Ni+
 
 INSERT INTO AspNetUserRoles (UserId, RoleId)
 SELECT u.Id, r.Id
@@ -12,7 +12,7 @@ AND r.Name = 'Usuario'
 
 -- Administrador
 -- correo: andersonEspinoza437@gmail.com
---Contraseña: 12345678Ae+
+-- contraseña: 12345678Ae+
 
 INSERT INTO AspNetUserRoles (UserId, RoleId)
 SELECT u.Id, r.Id
@@ -22,7 +22,7 @@ AND r.Name = 'Administrador'
 
 -- Chef
 -- correo: susanaChaves437@gmail.com
---Contraseña: 12345678Sc+
+-- contraseña: 12345678Sc+
 
 INSERT INTO AspNetUserRoles (UserId, RoleId)
 SELECT u.Id, r.Id

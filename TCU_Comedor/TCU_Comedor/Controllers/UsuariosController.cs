@@ -85,14 +85,12 @@ namespace TCU_Comedor.Controllers
         [Authorize(Roles = "Administrador,Usuario,Chef")]
         public ActionResult Perfil()
         {
-            var usuarios = (from u in BaseDatos.Users
-                            join ur in BaseDatos.Set<IdentityUserRole>() on u.Id equals ur.UserId
-                            join r in BaseDatos.Roles on ur.RoleId equals r.Id
-                            where r.Name == "Usuario"
-                            select u).ToList();
+            var userId = User.Identity.GetUserId(); // obtiene el Id del usuario logueado
+            var usuario = BaseDatos.Users.FirstOrDefault(u => u.Id == userId);
 
-            return View(usuarios);
+            return View(new List<ApplicationUser> { usuario }); // tu View espera una lista
         }
+
 
     }
 }

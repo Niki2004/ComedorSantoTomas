@@ -49,22 +49,25 @@
                                     <div class="collapse navbar-collapse" id="navbarNav">
                                         <ul class="navbar-nav ms-auto">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("IndChef", "RolesPropuestos")">Inicio</a>
+                                                <a class="nav-link" href="@Url.Action("IndChef", "RolesPropuestos")">Inicio</a> @*Listo*@
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("PedidosHoy", "Cocineras")">Pedidos del Día</a>
+                                                <a class="nav-link" href="@Url.Action("Index", "Galeria")">Galeria</a> @*Listo*@
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Inventario", "Cocineras")">Ingredientes</a>
+                                                <a class="nav-link" href="@Url.Action("IndexChef", "Menu")">Menú</a> @*Listo, falta el menu bien*@
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Recetas", "Cocineras")">Recetas</a>
+                                                <a class="nav-link" href="@Url.Action("Inventario", "Menu")">Inventario</a> @*Listo, falta el menu bien*@
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Perfil", "Cocineras")">Perfil</a>
+                                                <a class="nav-link" href="@Url.Action("Index", "Categoria")">Categoria Alimenticia</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
+                                                <a class="nav-link" href="@Url.Action("Perfil", "Usuarios")">Perfil</a> @*Listo*@
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a> @*Listo*@
                                             </li>
                                         </ul>
                                     </div>

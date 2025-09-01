@@ -23,19 +23,19 @@ namespace TCU_Comedor.Controllers
         [Authorize(Roles = "Usuario")]
         public ActionResult IndexInforme()
         {
-            // Definir el ID del usuario logueado
+            // ID del usuario logueado
             string userId = User.Identity.GetUserId();
 
             var model = new AjustesViewModel
             {
                 Informes = BaseDatos.PersonalizacionAlimentaria
                             .Include("ApplicationUser")
-                            .Where(i => i.Id == userId)   
+                            .Where(i => i.ApplicationUser.Id == userId)
                             .ToList(),
 
                 Nutriciones = BaseDatos.Nutricion
                               .Include("ApplicationUser")
-                              .Where(n => n.Id == userId)  
+                              .Where(n => n.ApplicationUser.Id == userId)
                               .ToList()
             };
 

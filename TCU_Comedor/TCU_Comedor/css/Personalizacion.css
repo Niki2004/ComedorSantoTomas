@@ -1,6 +1,6 @@
-.collapse {
+/*.collapse {
     transition: height 0.35s ease;
-}
+}*/
 
 /*        .collapse.show {
             display: block !important;
@@ -60,7 +60,7 @@
     }
 
         .custom-card .card-details.show {
-            max-height: 500px;
+            max-height: 500px; /* o más si quieres */
             opacity: 1;
         }
 
@@ -150,6 +150,10 @@
         .settings-section h3 a:hover {
             background: linear-gradient(135deg, #e04326 0%, #FF5333 100%);
         }
+
+.card-details {
+    display: block !important; /* evita que Bootstrap lo esconda */
+}
 
 /* Responsivo */
 @media (max-width: 768px) {

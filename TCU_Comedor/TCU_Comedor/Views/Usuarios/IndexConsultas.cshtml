@@ -45,36 +45,70 @@
                                     </button>
                                 </div>
 
+                                @{
+                                    var user = User.Identity;
+                                    var isAdmin = User.IsInRole("Administrador");
+                                }
+
                                 <nav class="navbar navbar-expand-lg">
                                     <div class="collapse navbar-collapse" id="navbarNav">
                                         <ul class="navbar-nav ms-auto">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Inicio</a> @*Listo*@
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Gestión Menú</a> @*Listo*@
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("IndexUsuarios", "Usuarios")">Usuarios</a> @*Listo*@
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("IndexConsultas", "Usuarios")">Consultas</a>  @*Listo*@
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Index", "Reportes")">Reportes</a> @*Listo*@
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Inventario", "Menu")">Proveedor</a> @*Listo*@
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="@Url.Action("Perfil", "Usuarios")">Perfil</a> @*Listo*@
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a> @*Listo*@
-                                            </li>
+
+                                            @if (isAdmin)
+                                            {
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Inicio</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("IndexADM", "Menu")">Gestión Menú</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("IndexUsuarios", "Usuarios")">Usuarios</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("IndexConsultas", "Usuarios")">Consultas</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("Index", "Reportes")">Reportes</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("Inventario", "Menu")">Proveedor</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("Perfil", "Usuarios")">Perfil</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("IndUsuario", "RolesPropuestos")">Inicio</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("Index", "Menu")">Menu del día</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("Index", "Alimentacion")">Alimentación</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("IndexConsultas", "Usuarios")">Consultas</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("IndexInforme", "Alimentacion")">Informe personal</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="@Url.Action("Perfil", "Usuarios")">Perfil</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href='@Url.Action("Index", "Ajustes")'><i class="fas fa-cog"></i></a>
+                                                </li>
+                                            }
                                         </ul>
                                     </div>
                                 </nav>
+
                             </div>
                         </nav>
                     </div>
